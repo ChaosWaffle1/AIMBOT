@@ -1,4 +1,2 @@
-res://Scenes/splash_screen.tscn
-res://Scenes/main_scene.tscn
-res://Scenes/title_screen.tscn
 res://Scenes/scroll_credits.tscn
+res://Scenes/scroll_notes.tscn
