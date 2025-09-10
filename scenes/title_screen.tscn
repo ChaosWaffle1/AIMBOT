@@ -1,0 +1,56 @@
+[gd_scene load_steps=3 format=3 uid="uid://bdfbkxndleffj"]
+
+[ext_resource type="Script" uid="uid://dyiv47vgf8a4h" path="res://Scripts/title_screen.gd" id="1_klylv"]
+[ext_resource type="PackedScene" uid="uid://bwqsnvjvqpjgq" path="res://Scenes/button.tscn" id="2_p3fck"]
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1152.0
+offset_bottom = -648.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_klylv")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 378.0
+offset_top = 99.0
+offset_right = 768.0
+offset_bottom = 236.0
+theme_override_font_sizes/font_size = 100
+text = "AIMBOT"
+
+[node name="Start" parent="." instance=ExtResource("2_p3fck")]
+layout_mode = 0
+offset_left = 442.0
+offset_top = 259.0
+offset_right = 698.0
+offset_bottom = 323.0
+text = "Start"
+
+[node name="Credits" parent="." instance=ExtResource("2_p3fck")]
+layout_mode = 0
+offset_left = 442.0
+offset_top = 355.0
+offset_right = 698.0
+offset_bottom = 419.0
+text = "Credits"
+
+[node name="Version Notes" parent="." instance=ExtResource("2_p3fck")]
+layout_mode = 0
+offset_left = 442.0
+offset_top = 451.0
+offset_right = 698.0
+offset_bottom = 515.0
+text = "Version Notes"
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[connection signal="button_up" from="Start" to="." method="_on_start_button_up"]
+[connection signal="button_up" from="Credits" to="." method="_on_credits_button_up"]

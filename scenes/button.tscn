@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwqsnvjvqpjgq"]
+
+[ext_resource type="Script" uid="uid://bqscg4oupe0b" path="res://Scripts/button.gd" id="1_0kpiu"]
+
+[node name="Button" type="Button"]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Test Button"
+script = ExtResource("1_0kpiu")
+
+[connection signal="button_up" from="." to="." method="_on_button_up"]
+[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

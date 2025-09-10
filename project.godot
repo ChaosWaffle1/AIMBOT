@@ -18,6 +18,10 @@ boot_splash/show_image=false
 boot_splash/image="uid://cw1kbvx3hp30k"
 config/icon="res://icon.svg"
 
+[autoload]
+
+GlobalSFX="*res://Scenes/global_sfx.tscn"
+
 [input]
 
 click={
