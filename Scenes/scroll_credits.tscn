@@ -1,0 +1,64 @@
+[gd_scene load_steps=3 format=3 uid="uid://dnu4mtdt8vhdu"]
+
+[ext_resource type="Script" uid="uid://v6h0jpc053j2" path="res://Scripts/scroll.gd" id="1_jrn3r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4lihp"]
+size = Vector2(369, 694)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Panel" type="Panel" parent="."]
+clip_children = 1
+offset_left = 276.0
+offset_top = 48.0
+offset_right = 647.0
+offset_bottom = 735.0
+
+[node name="Credits" type="Node2D" parent="Panel"]
+
+[node name="Label" type="Label" parent="Panel/Credits"]
+offset_left = 20.0
+offset_top = 33.0
+offset_right = 356.0
+offset_bottom = 75.0
+theme_override_font_sizes/font_size = 30
+text = "Credit 1"
+
+[node name="Label2" type="Label" parent="Panel/Credits"]
+offset_left = 20.0
+offset_top = 94.0
+offset_right = 356.0
+offset_bottom = 136.0
+theme_override_font_sizes/font_size = 30
+text = "Credit 2"
+
+[node name="Label3" type="Label" parent="Panel/Credits"]
+offset_left = 20.0
+offset_top = 155.0
+offset_right = 356.0
+offset_bottom = 197.0
+theme_override_font_sizes/font_size = 30
+text = "Credit 3"
+
+[node name="Label4" type="Label" parent="Panel/Credits"]
+offset_left = 21.0
+offset_top = 220.0
+offset_right = 357.0
+offset_bottom = 262.0
+theme_override_font_sizes/font_size = 30
+text = "Credit 4"
+
+[node name="Label5" type="Label" parent="Panel/Credits"]
+offset_left = 21.0
+offset_top = 287.0
+offset_right = 357.0
+offset_bottom = 329.0
+theme_override_font_sizes/font_size = 30
+text = "Credit 5"
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("1_jrn3r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(458.5, 395)
+shape = SubResource("RectangleShape2D_4lihp")
