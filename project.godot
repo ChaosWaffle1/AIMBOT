@@ -20,7 +20,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-GlobalSFX="*res://Scenes/global_sfx.tscn"
+GlobalSFX="*res://scenes/global_sfx.tscn"
 
 [input]
 

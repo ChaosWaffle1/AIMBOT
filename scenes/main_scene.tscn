@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c8ebwcx1pcnsy"]
 
-[node name="Main Scene" type="Node2D"]
+[node name="MainScene" type="Node2D"]
 
 [node name="Label" type="Label" parent="."]
 offset_left = 130.0

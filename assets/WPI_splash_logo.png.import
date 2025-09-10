@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cw1kbvx3hp30k"
-path="res://.godot/imported/WPI_Inst_Second_FulClr.png-1fc2da5a383f57641b980d36dad73cb4.ctex"
+path="res://.godot/imported/WPI_splash_logo.png-4d1be1941418e7943b0ff486c13a3c18.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/WPI_Inst_Second_FulClr.png"
-dest_files=["res://.godot/imported/WPI_Inst_Second_FulClr.png-1fc2da5a383f57641b980d36dad73cb4.ctex"]
+source_file="res://assets/WPI_splash_logo.png"
+dest_files=["res://.godot/imported/WPI_splash_logo.png-4d1be1941418e7943b0ff486c13a3c18.ctex"]
 
 [params]
 

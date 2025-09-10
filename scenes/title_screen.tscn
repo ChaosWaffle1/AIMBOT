@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bdfbkxndleffj"]
 
-[ext_resource type="Script" uid="uid://dyiv47vgf8a4h" path="res://Scripts/title_screen.gd" id="1_klylv"]
-[ext_resource type="PackedScene" uid="uid://bwqsnvjvqpjgq" path="res://Scenes/button.tscn" id="2_p3fck"]
+[ext_resource type="Script" uid="uid://dyiv47vgf8a4h" path="res://scripts/title_screen.gd" id="1_klylv"]
+[ext_resource type="PackedScene" uid="uid://bwqsnvjvqpjgq" path="res://scenes/button.tscn" id="2_p3fck"]
 
 [node name="TitleScreen" type="Control"]
 layout_mode = 3
@@ -39,7 +39,7 @@ offset_right = 698.0
 offset_bottom = 419.0
 text = "Credits"
 
-[node name="Version Notes" parent="." instance=ExtResource("2_p3fck")]
+[node name="VersionNotes" parent="." instance=ExtResource("2_p3fck")]
 layout_mode = 0
 offset_left = 442.0
 offset_top = 451.0
@@ -54,3 +54,4 @@ offset_bottom = 40.0
 
 [connection signal="button_up" from="Start" to="." method="_on_start_button_up"]
 [connection signal="button_up" from="Credits" to="." method="_on_credits_button_up"]
+[connection signal="button_up" from="VersionNotes" to="." method="_on_version_notes_button_up"]

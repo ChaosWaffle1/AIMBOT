@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://bdglgsee121tb"]
 
-[ext_resource type="Script" uid="uid://dewebpsv3nift" path="res://Scripts/global_sfx.gd" id="1_g5xk1"]
-[ext_resource type="AudioStream" uid="uid://cx5jm2tqnnusq" path="res://Assets/sounds/button-select.wav" id="2_dh683"]
-[ext_resource type="AudioStream" uid="uid://cfycfhaet14k6" path="res://Assets/sounds/button-hover.wav" id="3_vrtum"]
+[ext_resource type="Script" uid="uid://dewebpsv3nift" path="res://scripts/global_sfx.gd" id="1_g5xk1"]
+[ext_resource type="AudioStream" uid="uid://cx5jm2tqnnusq" path="res://assets/sounds/button_select.wav" id="2_dh683"]
+[ext_resource type="AudioStream" uid="uid://cfycfhaet14k6" path="res://assets/sounds/button_hover.wav" id="3_vrtum"]
 
 [node name="GlobalSFX" type="Node"]
 script = ExtResource("1_g5xk1")
