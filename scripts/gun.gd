@@ -2,10 +2,10 @@ extends CharacterBody2D
 var bullet_path=preload("res://scenes/Bullet.tscn")
 func _physics_process(delta):
 	look_at(get_global_mouse_position())
-	if Input.is_action_just_pressed("ui_accept")
+	if Input.is_action_just_pressed("ui_accept"):
 		fire()
 		
-func fire()
+func fire():
 	var bullet=bullet_path.instantiate()
 	bullet.dir=rotation
 	bullet.pos=$Node2D.global_position
