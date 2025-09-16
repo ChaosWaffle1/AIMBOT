@@ -1,20 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://cqpt38f65bnyy"]
+[gd_scene load_steps=4 format=3 uid="uid://rqojwxuto4i6"]
 
 [ext_resource type="Texture2D" uid="uid://1k6eo65xbgoa" path="res://icon.svg" id="1_hf8mt"]
-[ext_resource type="Script" uid="uid://bu1tqry5ax7fk" path="res://scripts/bullets.gd" id="1_p1sfj"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_p1sfj"]
-size = Vector2(156, 18.5)
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_mkf8s"]
+friction = 0.0
+bounce = 1.0
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
-script = ExtResource("1_p1sfj")
+[sub_resource type="CircleShape2D" id="CircleShape2D_mkf8s"]
+radius = 1.0
+
+[node name="Bullet" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_mkf8s")
+gravity_scale = 0.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, 2.38419e-07)
-scale = Vector2(1.21094, 0.140625)
+position = Vector2(2.98023e-08, 0)
+scale = Vector2(0.015625, 0.015625)
 texture = ExtResource("1_hf8mt")
-metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_p1sfj")
-metadata/_edit_lock_ = true
+shape = SubResource("CircleShape2D_mkf8s")
