@@ -3,7 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://1k6eo65xbgoa" path="res://icon.svg" id="1_hf8mt"]
 [ext_resource type="Script" uid="uid://bu1tqry5ax7fk" path="res://scripts/bullets.gd" id="1_p1sfj"]
 
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p1sfj"]
 size = Vector2(156, 18.5)
 
