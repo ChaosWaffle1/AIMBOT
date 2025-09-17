@@ -1,11 +1,14 @@
 [gd_scene load_steps=3 format=3 uid="uid://d4ahhrfv15rf0"]
 
 [ext_resource type="Texture2D" uid="uid://1k6eo65xbgoa" path="res://icon.svg" id="1_gp53h"]
-[ext_resource type="Script" uid="uid://c6w8k6dclkd6s" path="res://scripts/gun.gd" id="1_og67c"]
-
+[ext_resource type="Script" uid="uid://c6w8k6dclkd6s" path="res://scripts/gun.gd" id="1_h5px7"]
 
 [node name="Gun" type="Node2D"]
-script = ExtResource("1_og67c")
+script = ExtResource("1_h5px7")
+
+[node name="CollisionPoint" type="Sprite2D" parent="."]
+scale = Vector2(0.04, 0.04)
+texture = ExtResource("1_gp53h")
 
 [node name="Pivot" type="Node2D" parent="."]
 
@@ -16,3 +19,6 @@ position = Vector2(16, 0)
 position = Vector2(8, 0)
 scale = Vector2(0.125, 0.03125)
 texture = ExtResource("1_gp53h")
+
+[node name="RayCast2D" type="RayCast2D" parent="Pivot"]
+target_position = Vector2(500, 0)

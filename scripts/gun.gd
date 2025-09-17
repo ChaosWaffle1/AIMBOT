@@ -1,12 +1,13 @@
 extends Node2D
 
 var bullet_scene = preload("res://scenes/bullet.tscn")
-var bullet_speed = 400
+var bullet_speed = 1000
 
 func _physics_process(delta):
 	$Pivot.look_at(get_global_mouse_position())
 	if Input.is_action_just_pressed("click"):
 		fire()
+	$CollisionPoint.global_position = $Pivot/RayCast2D.get_collision_point()
 		
 func fire():
 	print("gun fired")
