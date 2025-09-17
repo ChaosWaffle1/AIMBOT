@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://d4ahhrfv15rf0"]
 
 [ext_resource type="Texture2D" uid="uid://1k6eo65xbgoa" path="res://icon.svg" id="1_gp53h"]
-[ext_resource type="Script" uid="uid://c6w8k6dclkd6s" path="res://scenes/gun.gd" id="1_og67c"]
+[ext_resource type="Script" uid="uid://c6w8k6dclkd6s" path="res://scripts/gun.gd" id="1_h5px7"]
 
 [node name="Gun" type="Node2D"]
-script = ExtResource("1_og67c")
+script = ExtResource("1_h5px7")
 
 [node name="Pivot" type="Node2D" parent="."]
 
