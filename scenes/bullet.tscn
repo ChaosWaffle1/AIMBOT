@@ -7,15 +7,16 @@ friction = 0.0
 bounce = 1.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mkf8s"]
-radius = 1.0
+radius = 2.0
 
 [node name="Bullet" type="RigidBody2D"]
 physics_material_override = SubResource("PhysicsMaterial_mkf8s")
 gravity_scale = 0.0
+continuous_cd = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(2.98023e-08, 0)
-scale = Vector2(0.015625, 0.015625)
+position = Vector2(-5.96046e-08, 5.96046e-08)
+scale = Vector2(0.03125, 0.03125)
 texture = ExtResource("1_hf8mt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
