@@ -62,7 +62,7 @@ shape = SubResource("RectangleShape2D_4lihp")
 offset_left = 452.0
 offset_top = 398.0
 offset_right = 725.0
-offset_bottom = 466.0
+offset_bottom = 475.0
 theme_override_font_sizes/font_size = 50
 text = "Back"
 
