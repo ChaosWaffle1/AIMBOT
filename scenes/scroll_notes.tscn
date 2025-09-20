@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bjogx07xbjswc"]
 
 [ext_resource type="Script" uid="uid://v6h0jpc053j2" path="res://scripts/scroll.gd" id="1_1f60s"]
-[ext_resource type="Script" uid="uid://cnl2stmse128r" path="res://scripts/scroll_notes.gd" id="1_8jhfi"]
+[ext_resource type="Script" path="res://scripts/scroll_notes.gd" id="1_8jhfi"]
 [ext_resource type="PackedScene" uid="uid://bwqsnvjvqpjgq" path="res://scenes/button.tscn" id="3_riypv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4lihp"]
@@ -39,6 +39,14 @@ Version 2
 
 "
 
+[node name="Back" parent="Panel/Credits" instance=ExtResource("3_riypv")]
+offset_left = 162.0
+offset_top = 521.0
+offset_right = 449.0
+offset_bottom = 614.0
+theme_override_font_sizes/font_size = 50
+text = "Back"
+
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 script = ExtResource("1_1f60s")
 
@@ -46,13 +54,5 @@ script = ExtResource("1_1f60s")
 position = Vector2(578.5, 365)
 shape = SubResource("RectangleShape2D_4lihp")
 
-[node name="Back" parent="." instance=ExtResource("3_riypv")]
-offset_left = 438.0
-offset_top = 569.0
-offset_right = 725.0
-offset_bottom = 662.0
-theme_override_font_sizes/font_size = 50
-text = "Back"
-
-[connection signal="button_up" from="Back" to="." method="_on_back_button_up"]
-[connection signal="button_up" from="Back" to="." method="_on_button_button_up"]
+[connection signal="button_up" from="Panel/Credits/Back" to="." method="_on_back_button_up"]
+[connection signal="button_up" from="Panel/Credits/Back" to="." method="_on_button_button_up"]
