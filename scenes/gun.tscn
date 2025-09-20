@@ -15,10 +15,10 @@ texture = ExtResource("1_gp53h")
 [node name="Barrel" type="Node2D" parent="Pivot"]
 position = Vector2(16, 0)
 
+[node name="LaserPoint" type="RayCast2D" parent="Pivot/Barrel"]
+target_position = Vector2(500, 0)
+
 [node name="Sprite2D" type="Sprite2D" parent="Pivot"]
 position = Vector2(8, 0)
 scale = Vector2(0.125, 0.03125)
 texture = ExtResource("1_gp53h")
-
-[node name="RayCast2D" type="RayCast2D" parent="Pivot"]
-target_position = Vector2(500, 0)
