@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dnu4mtdt8vhdu"]
 
-[ext_resource type="Script" uid="uid://cjmocx3v0fv8q" path="res://scripts/scroll_credits.gd" id="1_er6dx"]
+[ext_resource type="Script" path="res://scripts/scroll_credits.gd" id="1_er6dx"]
 [ext_resource type="Script" uid="uid://v6h0jpc053j2" path="res://scripts/scroll.gd" id="1_jrn3r"]
 [ext_resource type="PackedScene" uid="uid://bwqsnvjvqpjgq" path="res://scenes/button.tscn" id="3_m0rqu"]
 
@@ -12,10 +12,10 @@ script = ExtResource("1_er6dx")
 
 [node name="Panel" type="Panel" parent="."]
 clip_children = 1
-offset_left = 276.0
-offset_top = 48.0
-offset_right = 647.0
-offset_bottom = 735.0
+offset_left = 282.0
+offset_top = 26.0
+offset_right = 983.0
+offset_bottom = 713.0
 
 [node name="Credits" type="Node2D" parent="Panel"]
 
@@ -51,6 +51,14 @@ offset_bottom = 233.0
 theme_override_font_sizes/font_size = 30
 text = "Nick Wagner"
 
+[node name="Back" parent="Panel/Credits" instance=ExtResource("3_m0rqu")]
+offset_left = 176.0
+offset_top = 350.0
+offset_right = 449.0
+offset_bottom = 427.0
+theme_override_font_sizes/font_size = 50
+text = "Back"
+
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 script = ExtResource("1_jrn3r")
 
@@ -58,12 +66,4 @@ script = ExtResource("1_jrn3r")
 position = Vector2(587.5, 366)
 shape = SubResource("RectangleShape2D_4lihp")
 
-[node name="Back" parent="." instance=ExtResource("3_m0rqu")]
-offset_left = 452.0
-offset_top = 398.0
-offset_right = 725.0
-offset_bottom = 475.0
-theme_override_font_sizes/font_size = 50
-text = "Back"
-
-[connection signal="button_up" from="Back" to="." method="_on_back_button_up"]
+[connection signal="button_up" from="Panel/Credits/Back" to="." method="_on_back_button_up"]
