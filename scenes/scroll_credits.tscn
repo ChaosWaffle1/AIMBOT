@@ -1,11 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://dnu4mtdt8vhdu"]
+[gd_scene load_steps=5 format=3 uid="uid://dnu4mtdt8vhdu"]
 
+[ext_resource type="Script" uid="uid://cjmocx3v0fv8q" path="res://scripts/scroll_credits.gd" id="1_er6dx"]
 [ext_resource type="Script" uid="uid://v6h0jpc053j2" path="res://scripts/scroll.gd" id="1_jrn3r"]
+[ext_resource type="PackedScene" uid="uid://bwqsnvjvqpjgq" path="res://scenes/button.tscn" id="3_m0rqu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4lihp"]
 size = Vector2(369, 694)
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_er6dx")
 
 [node name="Panel" type="Panel" parent="."]
 clip_children = 1
@@ -54,3 +57,13 @@ script = ExtResource("1_jrn3r")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 position = Vector2(587.5, 366)
 shape = SubResource("RectangleShape2D_4lihp")
+
+[node name="Back" parent="." instance=ExtResource("3_m0rqu")]
+offset_left = 452.0
+offset_top = 398.0
+offset_right = 725.0
+offset_bottom = 475.0
+theme_override_font_sizes/font_size = 50
+text = "Back"
+
+[connection signal="button_up" from="Back" to="." method="_on_back_button_up"]
