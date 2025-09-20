@@ -5,9 +5,18 @@ var bullet_speed = 1000
 
 func _physics_process(delta):
 	$Pivot.look_at(get_global_mouse_position())
+	var barrelPos = $Pivot/Barrel.global_position
+	barrelPos.x -= 16
+	$Laser.set_point_position(0, to_local(barrelPos))
 	if Input.is_action_just_pressed("click"):
 		fire()
-	$CollisionPoint.global_position = $Pivot/Barrel/LaserPoint.get_collision_point()
+	if $Pivot/Barrel/LaserPoint.is_colliding():
+		$CollisionPoint.global_position = $Pivot/Barrel/LaserPoint.get_collision_point()
+		var colPos = $Pivot/Barrel/LaserPoint.get_collision_point()
+		colPos.x -= 16
+		$Laser.set_point_position(1, to_local(colPos))
+		
+	
 		
 func fire():
 	print("gun fired")
