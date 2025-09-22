@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dg8pjgudgmivf" path="res://assets/playerStandIn.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://cwyw6rc8xb10d" path="res://scripts/player.gd" id="1_g2els"]
-[ext_resource type="PackedScene" uid="uid://d4ahhrfv15rf0" path="res://scenes/gun.tscn" id="2_qhqgy"]
+[ext_resource type="PackedScene" uid="uid://dqimkrvt0cy0q" path="res://scenes/gun.tscn" id="2_qhqgy"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g2els"]
 animations = [{

@@ -11,5 +11,6 @@ tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAD+/wAAAAAAAAA
 [node name="Player" parent="." instance=ExtResource("2_0n1tn")]
 position = Vector2(-11, -70)
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
-zoom = Vector2(5, 5)
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(2, -120)
+zoom = Vector2(2, 2)
