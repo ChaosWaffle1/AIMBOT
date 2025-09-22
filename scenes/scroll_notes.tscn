@@ -54,5 +54,5 @@ script = ExtResource("1_1f60s")
 position = Vector2(578.5, 365)
 shape = SubResource("RectangleShape2D_4lihp")
 
-[connection signal="button_up" from="Panel/Credits/Back" to="." method="_on_back_button_up"]
 [connection signal="button_up" from="Panel/Credits/Back" to="." method="_on_button_button_up"]
+[connection signal="button_up" from="Panel/Credits/Back" to="." method="_on_back_button_up"]

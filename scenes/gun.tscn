@@ -14,6 +14,7 @@ default_color = Color(0.92549, 0, 0.0862745, 0.521569)
 end_cap_mode = 2
 
 [node name="CollisionPoint" type="Sprite2D" parent="."]
+visible = false
 scale = Vector2(0.04, 0.04)
 texture = ExtResource("1_gp53h")
 
