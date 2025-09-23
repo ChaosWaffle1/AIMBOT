@@ -22,10 +22,15 @@ func _physics_process(delta: float) -> void:
 		fire()
 	enabled = false
 
+
 func fire():
 	var ray = RayCast2D.new()
 	add_child(ray)
 	ray.enabled = true
+	print(global_position)
+	ray.global_position = global_position
+	print(ray.global_position)
+	print(ray.position)
 	ray.target_position = Vector2(cast_radius,0)
 	ray.force_raycast_update() #needed since it is created outside of physics process
 	if ray.is_colliding():
