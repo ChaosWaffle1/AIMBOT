@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dveaf7k64cejk"]
 
-[ext_resource type="Script" uid="uid://uyv1yg5a57m4" path="res://scripts/bullet_path.gd" id="1_6pjp0"]
+[ext_resource type="Script" uid="uid://d0mu4wubne3do" path="res://scripts/bullet_path.gd" id="1_6pjp0"]
 
 [node name="BulletPath" type="Node2D"]
 script = ExtResource("1_6pjp0")
