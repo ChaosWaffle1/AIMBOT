@@ -2,7 +2,7 @@ class_name BulletPath
 extends Node2D
 
 @export_range(0,10,1,"or_greater") var bounces: int
-@export_range(0,100) var cast_radius: int = 300
+@export_range(0,600,0.1,"or_greater") var cast_radius: float = 300
 @export var debug_path_enabled: bool
 
 @onready var debug_path = $DebugPath
@@ -22,16 +22,13 @@ func _physics_process(delta: float) -> void:
 		fire()
 	enabled = false
 
-
 func fire():
 	var ray = RayCast2D.new()
 	add_child(ray)
 	ray.enabled = true
-	print(global_position)
 	ray.global_position = global_position
-	print(ray.global_position)
-	print(ray.position)
-	ray.target_position = Vector2(cast_radius,0)
+	ray.target_position = Vector2(cast_radius,0) #cast_radius=300
+	print(ray.target_position)
 	ray.force_raycast_update() #needed since it is created outside of physics process
 	if ray.is_colliding():
 		print("hit")

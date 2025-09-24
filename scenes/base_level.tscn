@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=4 uid="uid://s8qb6y11104g"]
+[gd_scene load_steps=4 format=4 uid="uid://s8qb6y11104g"]
 
 [ext_resource type="PackedScene" uid="uid://bqca33741khei" path="res://scenes/tile_map.tscn" id="1_dbkse"]
 [ext_resource type="PackedScene" uid="uid://cew2qflt412m6" path="res://scenes/player.tscn" id="2_0n1tn"]
+[ext_resource type="PackedScene" uid="uid://dveaf7k64cejk" path="res://scenes/bullet_path.tscn" id="3_0n1tn"]
 
 [node name="BaseLevel" type="Node2D"]
 
@@ -14,3 +15,6 @@ position = Vector2(-11, -70)
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(2, -120)
 zoom = Vector2(2, 2)
+
+[node name="BulletPath" parent="." instance=ExtResource("3_0n1tn")]
+position = Vector2(19, -58)
