@@ -5,17 +5,17 @@
 [ext_resource type="PackedScene" uid="uid://bwqsnvjvqpjgq" path="res://scenes/button.tscn" id="3_m0rqu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4lihp"]
-size = Vector2(369, 694)
+size = Vector2(369, 414)
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_er6dx")
 
 [node name="Panel" type="Panel" parent="."]
 clip_children = 1
-offset_left = 282.0
+offset_left = 300.0
 offset_top = 26.0
-offset_right = 983.0
-offset_bottom = 713.0
+offset_right = 827.0
+offset_bottom = 513.0
 
 [node name="Credits" type="Node2D" parent="Panel"]
 
@@ -51,19 +51,19 @@ offset_bottom = 233.0
 theme_override_font_sizes/font_size = 30
 text = "Nick Wagner"
 
-[node name="Back" parent="Panel/Credits" instance=ExtResource("3_m0rqu")]
-offset_left = 176.0
-offset_top = 350.0
-offset_right = 449.0
-offset_bottom = 427.0
-theme_override_font_sizes/font_size = 50
-text = "Back"
-
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 script = ExtResource("1_jrn3r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(587.5, 366)
+position = Vector2(587.5, 226)
 shape = SubResource("RectangleShape2D_4lihp")
 
-[connection signal="button_up" from="Panel/Credits/Back" to="." method="_on_back_button_up"]
+[node name="Back" parent="." instance=ExtResource("3_m0rqu")]
+offset_left = 433.0
+offset_top = 519.0
+offset_right = 706.0
+offset_bottom = 596.0
+theme_override_font_sizes/font_size = 50
+text = "Back"
+
+[connection signal="button_up" from="Back" to="." method="_on_back_button_up"]

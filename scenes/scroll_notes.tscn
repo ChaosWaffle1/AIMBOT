@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bwqsnvjvqpjgq" path="res://scenes/button.tscn" id="3_riypv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4lihp"]
-size = Vector2(369, 694)
+size = Vector2(369, 541)
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_8jhfi")
@@ -15,15 +15,15 @@ clip_children = 1
 offset_left = 276.0
 offset_top = 48.0
 offset_right = 948.0
-offset_bottom = 735.0
+offset_bottom = 561.0
 
 [node name="Credits" type="Node2D" parent="Panel"]
 
 [node name="Label" type="Label" parent="Panel/Credits"]
 offset_left = 140.0
 offset_top = 3.0
-offset_right = 765.0
-offset_bottom = 180.0
+offset_right = 512.0
+offset_bottom = 585.0
 theme_override_font_sizes/font_size = 30
 text = "Version 1 Notes:
 - Added title screen
@@ -39,20 +39,20 @@ Version 2
 
 "
 
-[node name="Back" parent="Panel/Credits" instance=ExtResource("3_riypv")]
-offset_left = 162.0
-offset_top = 521.0
-offset_right = 449.0
-offset_bottom = 614.0
-theme_override_font_sizes/font_size = 50
-text = "Back"
-
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 script = ExtResource("1_1f60s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(578.5, 365)
+position = Vector2(578.5, 288.5)
 shape = SubResource("RectangleShape2D_4lihp")
 
-[connection signal="button_up" from="Panel/Credits/Back" to="." method="_on_button_button_up"]
-[connection signal="button_up" from="Panel/Credits/Back" to="." method="_on_back_button_up"]
+[node name="Back" parent="." instance=ExtResource("3_riypv")]
+offset_left = 438.0
+offset_top = 569.0
+offset_right = 725.0
+offset_bottom = 662.0
+theme_override_font_sizes/font_size = 50
+text = "Back"
+
+[connection signal="button_up" from="Back" to="." method="_on_button_button_up"]
+[connection signal="button_up" from="Back" to="." method="_on_back_button_up"]
