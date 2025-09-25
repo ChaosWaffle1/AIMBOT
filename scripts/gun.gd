@@ -11,11 +11,12 @@ extends Node2D
 
 func _physics_process(delta):
 	pivot.look_at(get_global_mouse_position())
+	if Input.is_action_just_pressed("click"):
+		fire()
+		
 	var barrelPos = barrel.global_position
 	barrelPos.x -= 16
 	laser.set_point_position(0, to_local(barrelPos))
-	if Input.is_action_just_pressed("click"):
-		fire()
 	if laser_cast.is_colliding():
 		var colPos = laser_cast.get_collision_point()
 		colPos.x -= 16

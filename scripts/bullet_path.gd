@@ -9,6 +9,8 @@ var enabled: bool = true
 func _physics_process(delta: float) -> void:
 	if enabled:
 		fire()
+	#else:
+		#queue_free()
 	enabled = false
 
 func fire():
@@ -51,7 +53,7 @@ func fire():
 		ray.force_raycast_update() 
 		if ray.is_colliding():			
 			hit = ray.get_collision_point()	# always global
-			old_hit = source.lerp(hit, 1) # slight lerp to avoid next ray hitting same wall 
+			old_hit = source.lerp(hit, 0.999) # slight lerp to avoid next ray hitting same wall 
 			old_normal = ray.get_collision_normal()
 		else:
 			hit = ray.target_position + source
