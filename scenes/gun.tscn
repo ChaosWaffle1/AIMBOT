@@ -13,17 +13,12 @@ width = 1.5
 default_color = Color(0.92549, 0, 0.0862745, 0.521569)
 end_cap_mode = 2
 
-[node name="CollisionPoint" type="Sprite2D" parent="."]
-visible = false
-scale = Vector2(0.04, 0.04)
-texture = ExtResource("1_gp53h")
-
 [node name="Pivot" type="Node2D" parent="."]
 
 [node name="Barrel" type="Node2D" parent="Pivot"]
 position = Vector2(16, 0)
 
-[node name="LaserPoint" type="RayCast2D" parent="Pivot/Barrel"]
+[node name="LaserCast" type="RayCast2D" parent="Pivot/Barrel"]
 target_position = Vector2(500, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Pivot"]
