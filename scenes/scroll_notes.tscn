@@ -5,17 +5,17 @@
 [ext_resource type="PackedScene" uid="uid://bwqsnvjvqpjgq" path="res://scenes/button.tscn" id="3_riypv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4lihp"]
-size = Vector2(369, 541)
+size = Vector2(369, 502.5)
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_8jhfi")
 
 [node name="Panel" type="Panel" parent="."]
 clip_children = 1
-offset_left = 275.0
-offset_top = 49.0
-offset_right = 947.0
-offset_bottom = 562.0
+offset_left = 135.0
+offset_top = -2.0
+offset_right = 807.0
+offset_bottom = 493.0
 
 [node name="Credits" type="Node2D" parent="Panel"]
 
@@ -36,21 +36,29 @@ Version 2
 - Added Gun and Bullet
 - Added Player
 - Added Level Scene
-
+Version 3
+- Added player sprite 
+- Began developing bullet logic
+- Added laser for the gun
+- Fixed camera position
+- Added back buttons for menus
+- Cleaned up code
 "
+metadata/_edit_use_anchors_ = true
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(11, -39)
 script = ExtResource("1_1f60s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(578.5, 288.5)
+position = Vector2(436, 282.25)
 shape = SubResource("RectangleShape2D_4lihp")
 
 [node name="Back" parent="." instance=ExtResource("3_riypv")]
-offset_left = 438.0
-offset_top = 569.0
-offset_right = 725.0
-offset_bottom = 662.0
+offset_left = 319.0
+offset_top = 497.0
+offset_right = 545.0
+offset_bottom = 574.0
 theme_override_font_sizes/font_size = 50
 text = "Back"
 

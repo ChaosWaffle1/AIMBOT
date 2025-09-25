@@ -18,6 +18,7 @@ offset_right = 827.0
 offset_bottom = 513.0
 
 [node name="Credits" type="Node2D" parent="Panel"]
+position = Vector2(-124, 63)
 
 [node name="Label" type="Label" parent="Panel/Credits"]
 offset_left = 149.0
@@ -55,14 +56,14 @@ text = "Nick Wagner"
 script = ExtResource("1_jrn3r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(587.5, 226)
+position = Vector2(406, 243)
 shape = SubResource("RectangleShape2D_4lihp")
 
 [node name="Back" parent="." instance=ExtResource("3_m0rqu")]
-offset_left = 433.0
-offset_top = 519.0
-offset_right = 706.0
-offset_bottom = 596.0
+offset_left = 293.0
+offset_top = 483.0
+offset_right = 566.0
+offset_bottom = 560.0
 theme_override_font_sizes/font_size = 50
 text = "Back"
 
