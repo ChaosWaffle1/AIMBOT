@@ -22,9 +22,7 @@ func _physics_process(delta):
 		laser.set_point_position(1, to_local(colPos))
 		
 func fire():
-	print("gun fired")
 	var path: Node2D = bullet_path_tscn.instantiate()
-	get_tree().get_current_scene().add_child(path)	
+	get_tree().get_current_scene().add_child(path)	# set parent of path to global scene (the level)
 	path.global_position = barrel.global_position
 	path.rotation = pivot.rotation
-	print("added to scene tree")
