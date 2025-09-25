@@ -4,13 +4,16 @@ var enabled: bool = true
 
 @export var max_bounces: int = 100
 @export var cast_radius: float = 300
-@onready var debug_path: Line2D = $DebugPath
+
+@onready var path: Path2D = $Path
+@onready var debug_line: Line2D = $DebugLine
+
+func _ready() -> void:
+	path.curve = Curve2D.new()
 
 func _physics_process(delta: float) -> void:
 	if enabled:
 		fire()
-	#else:
-		#queue_free()
 	enabled = false
 
 func fire():
@@ -60,8 +63,10 @@ func fire():
 			
 		# must be local to BulletPath so DebugLine renders correctly
 		if not old_ray:	# adds extra point if first ray
-			debug_path.add_point(to_local(source)) 
-		debug_path.add_point(to_local(hit))
+			path.curve.add_point(to_local(source)) 
+			debug_line.add_point(to_local(source))
+		path.curve.add_point(to_local(hit))
+		debug_line.add_point(to_local(hit))
 		
 		if ray.is_colliding():
 			bounces += 1
@@ -69,5 +74,7 @@ func fire():
 		else:
 			break
 
-func _on_death_timeout() -> void:
+
+func _on_bullet_path_completed() -> void:
+	#path.curve.clear_points() #for some reason godot doesn't reset the path after queue_free() like its global for some reason
 	queue_free()
