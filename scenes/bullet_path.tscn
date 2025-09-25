@@ -9,6 +9,11 @@ script = ExtResource("1_6pjp0")
 target_position = Vector2(300, 0)
 
 [node name="DebugPath" type="Line2D" parent="."]
-visible = false
-width = 2.0
-default_color = Color(1, 0, 1, 1)
+width = 0.2
+default_color = Color(0.0583474, 0.655667, 1, 1)
+
+[node name="Death" type="Timer" parent="."]
+wait_time = 0.2
+autostart = true
+
+[connection signal="timeout" from="Death" to="." method="_on_death_timeout"]

@@ -1,29 +1,29 @@
-[gd_scene load_steps=3 format=3 uid="uid://dqimkrvt0cy0q"]
+[gd_scene load_steps=5 format=3 uid="uid://dqimkrvt0cy0q"]
 
 [ext_resource type="Texture2D" uid="uid://1k6eo65xbgoa" path="res://icon.svg" id="1_gp53h"]
 [ext_resource type="Script" uid="uid://c6w8k6dclkd6s" path="res://scripts/gun.gd" id="1_h5px7"]
+[ext_resource type="Shader" uid="uid://btuapmox5k7hw" path="res://shaders/pixelated.gdshader" id="2_gp1hk"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qd4js"]
+shader = ExtResource("2_gp1hk")
 
 [node name="Gun" type="Node2D"]
 script = ExtResource("1_h5px7")
 
 [node name="Laser" type="Line2D" parent="."]
+material = SubResource("ShaderMaterial_qd4js")
 position = Vector2(16, 0)
 points = PackedVector2Array(0, 0, 500, 0)
 width = 1.5
 default_color = Color(0.92549, 0, 0.0862745, 0.521569)
 end_cap_mode = 2
 
-[node name="CollisionPoint" type="Sprite2D" parent="."]
-visible = false
-scale = Vector2(0.04, 0.04)
-texture = ExtResource("1_gp53h")
-
 [node name="Pivot" type="Node2D" parent="."]
 
 [node name="Barrel" type="Node2D" parent="Pivot"]
 position = Vector2(16, 0)
 
-[node name="LaserPoint" type="RayCast2D" parent="Pivot/Barrel"]
+[node name="LaserCast" type="RayCast2D" parent="Pivot/Barrel"]
 target_position = Vector2(500, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Pivot"]

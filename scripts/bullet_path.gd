@@ -1,41 +1,71 @@
-class_name BulletPath
 extends Node2D
-
-@export_range(0,10,1,"or_greater") var bounces: int
-@export_range(0,600,0.1,"or_greater") var cast_radius: float = 300
-@export var debug_path_enabled: bool
-
-@onready var debug_path = $DebugPath
 
 var enabled: bool = true
 
-func _ready():
-	if debug_path_enabled:
-		debug_path.visible = true
-	else:
-		debug_path.visible = false		
-
+@export var max_bounces: int = 100
+@export var cast_radius: float = 300
+@onready var debug_path: Line2D = $DebugPath
 
 func _physics_process(delta: float) -> void:
 	if enabled:
-		print("firing ray")
 		fire()
 	enabled = false
 
 func fire():
-	var ray = RayCast2D.new()
-	add_child(ray)
-	ray.enabled = true
-	ray.global_position = global_position
-	ray.target_position = Vector2(cast_radius,0) #cast_radius=300
-	print(ray.target_position)
-	ray.force_raycast_update() #needed since it is created outside of physics process
-	if ray.is_colliding():
-		print("hit")
-		var source = ray.global_position
-		var hit = ray.get_collision_point()
+	var bounces = 0
+	var old_ray = null
+	var old_hit = null
+	var old_normal = null
+	
+	# set global rotation of bullet path to 0 ("transfers" the rotation to the ray as opposed to the big parent node)
+	var init_angle = global_rotation
+	global_rotation = 0
+	
+	while bounces <= max_bounces:
+		# create a new ray
+		var ray = RayCast2D.new()
+		ray.enabled = true
 		
-		debug_path.add_point(source)
-		debug_path.add_point(hit)
-	else:
-		print("miss")
+		# parent to old ray, or base node if no old_ray
+		if old_ray:
+			old_ray.add_child(ray)
+		else:
+			add_child(ray) # first ray cast
+		
+		# position new ray at tip of old_ray unless this is the first ray
+		if old_hit:
+			ray.position = old_ray.to_local(old_hit) 
+
+		# set other stuff
+		if old_ray:
+			var dir: Vector2 = old_ray.to_local(old_hit).bounce(old_normal).normalized()
+			ray.target_position = cast_radius*dir
+		else:
+			ray.target_position = Vector2(cast_radius,0).rotated(init_angle)
+
+		# must be global due to get_collision_point()
+		var source = ray.global_position		
+		var hit = null
+		
+		# needed since it is created outside of physics process
+		ray.force_raycast_update() 
+		if ray.is_colliding():			
+			hit = ray.get_collision_point()	# always global
+			old_hit = source.lerp(hit, 1) # slight lerp to avoid next ray hitting same wall 
+			old_normal = ray.get_collision_normal()
+		else:
+			hit = ray.target_position + source
+			
+		# must be local to BulletPath so DebugLine renders correctly
+		if not old_ray:	# adds extra point if first ray
+			debug_path.add_point(to_local(source)) 
+		debug_path.add_point(to_local(hit))
+		
+		if ray.is_colliding():
+			bounces += 1
+			old_ray = ray
+		else:
+			break
+
+func _on_death_timeout() -> void:
+	queue_free()
