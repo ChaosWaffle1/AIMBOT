@@ -2,7 +2,7 @@ extends Node2D
 
 var enabled: bool = true
 
-@export var max_bounces: int = 100
+@export var max_bounces: int = 20
 @export var cast_radius: float = 300
 
 @onready var path: Path2D = $Path
