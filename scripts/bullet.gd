@@ -1,10 +1,14 @@
 extends PathFollow2D
 
-const BULLET_SPEED = 2000
+const BULLET_SPEED = 3000
 
 signal path_completed
 
+var old_progress = 0
+
 func _process(delta: float) -> void:
 	progress += BULLET_SPEED*delta
-	if abs(progress_ratio-1) < 0.01:
+	if progress - old_progress < 0:
 		path_completed.emit()
+	old_progress = progress
+	print(progress)

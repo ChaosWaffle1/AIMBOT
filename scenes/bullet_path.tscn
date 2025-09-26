@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dveaf7k64cejk"]
 
 [ext_resource type="Script" uid="uid://d0mu4wubne3do" path="res://scripts/bullet_path.gd" id="1_6pjp0"]
-[ext_resource type="Script" uid="uid://cngm8fuki08er" path="res://scenes/bullet.gd" id="2_2aei3"]
+[ext_resource type="Script" uid="uid://cngm8fuki08er" path="res://scripts/bullet.gd" id="2_2aei3"]
 [ext_resource type="Texture2D" uid="uid://1k6eo65xbgoa" path="res://icon.svg" id="2_65mvj"]
 
 [node name="BulletPath" type="Node2D"]
