@@ -1,27 +1,26 @@
 [gd_scene load_steps=4 format=3 uid="uid://dveaf7k64cejk"]
 
 [ext_resource type="Script" uid="uid://d0mu4wubne3do" path="res://scripts/bullet_path.gd" id="1_6pjp0"]
-[ext_resource type="Script" uid="uid://cngm8fuki08er" path="res://scenes/bullet.gd" id="2_2aei3"]
+[ext_resource type="Script" uid="uid://cngm8fuki08er" path="res://scripts/bullet.gd" id="2_2aei3"]
 [ext_resource type="Texture2D" uid="uid://1k6eo65xbgoa" path="res://icon.svg" id="2_65mvj"]
 
-[node name="BulletPath" type="Node2D"]
+[node name="Bullet" type="Node2D"]
 script = ExtResource("1_6pjp0")
 
-[node name="Dummy" type="RayCast2D" parent="."]
-target_position = Vector2(300, 0)
+[node name="Sight" type="RayCast2D" parent="."]
 
 [node name="DebugLine" type="Line2D" parent="."]
 width = 0.2
-default_color = Color(0.0583474, 0.655667, 1, 1)
+default_color = Color(1, 0, 1, 1)
 
 [node name="Path" type="Path2D" parent="."]
 
-[node name="Bullet" type="PathFollow2D" parent="Path"]
+[node name="PathFollow" type="PathFollow2D" parent="Path"]
 script = ExtResource("2_2aei3")
 
-[node name="Sprite2D" type="Sprite2D" parent="Path/Bullet"]
+[node name="Sprite2D" type="Sprite2D" parent="Path/PathFollow"]
 position = Vector2(5.96046e-08, -5.96046e-08)
 scale = Vector2(0.03125, 0.03125)
 texture = ExtResource("2_65mvj")
 
-[connection signal="path_completed" from="Path/Bullet" to="." method="_on_bullet_path_completed"]
+[connection signal="path_completed" from="Path/PathFollow" to="." method="_on_bullet_path_completed"]
