@@ -1,11 +1,11 @@
 extends Node2D
 
-const SLOP = 0.9999
+const SLOP = 0.999
 
 var bounces: int = 0
 var finished: bool = false
 
-@export var bullet_speed: float = 100
+@export var bullet_speed: float = 10000
 @export var max_bounces: int = 10
 
 @onready var path: Path2D = $Path
@@ -39,7 +39,7 @@ func _physics_process(delta: float) -> void:
 			debug_line.add_point(path.to_local(ray.global_position) + ray.target_position)
 			path_follow.progress += SLOP*distance_remaining
 			return
-		print("YES!!!!!!!!!!!!!")
+			
 		bounces += 1
 		# add hit to path
 		var hit: Vector2 = ray.get_collision_point()
@@ -49,8 +49,8 @@ func _physics_process(delta: float) -> void:
 		
 		# subtract off traversed distance before bounce from distance remaining
 		var distance_to_hit = (ray.position - ray.to_local(hit)).length()
-		path_follow.progress += distance_to_hit
-		distance_remaining -= distance_to_hit
+		path_follow.progress += SLOP*distance_to_hit
+		distance_remaining -= SLOP*distance_to_hit
 
 		# create a new ray
 		var new_ray = RayCast2D.new()
