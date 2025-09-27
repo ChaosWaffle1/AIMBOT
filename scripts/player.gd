@@ -3,7 +3,6 @@ extends CharacterBody2D
 
 var SPEED = 80.0
 var JUMP_VELOCITY = -300.0
-var moveToggled = false
 
 @onready var sprite = $AnimatedSprite2D 
 
@@ -13,14 +12,14 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 
 	# Toggle between regular movement and "aim mode"
-	if Input.is_action_just_pressed("moveSwap") and is_on_floor() and moveToggled == false:
+	if Input.is_action_just_pressed("moveSwap") and is_on_floor() and not GlobalVars.moveToggled:
 		SPEED = 0
 		JUMP_VELOCITY = 0
-		moveToggled = true
-	elif Input.is_action_just_pressed("moveSwap") and moveToggled == true:
+		GlobalVars.moveToggled = true
+	elif Input.is_action_just_pressed("moveSwap") and GlobalVars.moveToggled:
 		SPEED = 80.0
 		JUMP_VELOCITY = -300.0
-		moveToggled = false
+		GlobalVars.moveToggled = false
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():

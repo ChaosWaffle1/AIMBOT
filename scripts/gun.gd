@@ -11,7 +11,7 @@ extends Node2D
 
 func _physics_process(delta):
 	pivot.look_at(get_global_mouse_position())
-	if Input.is_action_just_pressed("click"):
+	if Input.is_action_just_pressed("click") and GlobalVars.moveToggled:
 		fire()
 		
 	var barrelPos = barrel.global_position
