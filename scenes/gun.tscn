@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dqimkrvt0cy0q"]
+[gd_scene load_steps=5 format=3 uid="uid://cx208wp68sh2u"]
 
 [ext_resource type="Script" uid="uid://c6w8k6dclkd6s" path="res://scripts/gun.gd" id="1_h5px7"]
 [ext_resource type="Shader" uid="uid://btuapmox5k7hw" path="res://shaders/pixelated.gdshader" id="2_gp1hk"]

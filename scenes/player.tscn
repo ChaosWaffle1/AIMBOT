@@ -1,6 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://cew2qflt412m6"]
 
 [ext_resource type="Script" uid="uid://cwyw6rc8xb10d" path="res://scripts/player.gd" id="1_g2els"]
+
 [ext_resource type="Texture2D" uid="uid://1hetk5r3a6eh" path="res://assets/sprites/player_shooting.png" id="2_dqkch"]
 [ext_resource type="PackedScene" uid="uid://dqimkrvt0cy0q" path="res://scenes/gun.tscn" id="2_qhqgy"]
 
