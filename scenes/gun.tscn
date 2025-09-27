@@ -11,6 +11,7 @@ shader = ExtResource("2_gp1hk")
 script = ExtResource("1_h5px7")
 
 [node name="Laser" type="Line2D" parent="."]
+visible = false
 material = SubResource("ShaderMaterial_qd4js")
 position = Vector2(16, 0)
 points = PackedVector2Array(0, 0, 500, 0)
