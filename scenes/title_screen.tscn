@@ -1,9 +1,37 @@
-[gd_scene load_steps=4 format=3 uid="uid://bdfbkxndleffj"]
+[gd_scene load_steps=9 format=3 uid="uid://bdfbkxndleffj"]
 
 [ext_resource type="Script" uid="uid://dyiv47vgf8a4h" path="res://scripts/title_screen.gd" id="1_klylv"]
 [ext_resource type="PackedScene" uid="uid://bwqsnvjvqpjgq" path="res://scenes/button.tscn" id="2_p3fck"]
 
 [sub_resource type="FontVariation" id="FontVariation_sa3yf"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sa3yf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sa3yf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s4lrb"]
+bg_color = Color(0.74978, 0.74978, 0.74978, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mgrm8"]
+bg_color = Color(0.41598, 0.41598, 0.41598, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sa3yf"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
 
 [node name="TitleScreen" type="Control"]
 layout_mode = 3
@@ -18,43 +46,95 @@ script = ExtResource("1_klylv")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 378.0
-offset_top = 99.0
-offset_right = 768.0
-offset_bottom = 236.0
+offset_left = 419.0
+offset_top = 104.0
+offset_right = 809.0
+offset_bottom = 241.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 10
 theme_override_fonts/font = SubResource("FontVariation_sa3yf")
 theme_override_font_sizes/font_size = 100
 text = "AIMBOT"
 
-[node name="Start" parent="." instance=ExtResource("2_p3fck")]
+[node name="Background" type="Panel" parent="."]
 layout_mode = 0
-offset_left = 442.0
-offset_top = 259.0
-offset_right = 698.0
-offset_bottom = 323.0
+offset_right = 1056.0
+offset_bottom = 615.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_sa3yf")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 459.0
+offset_top = 255.0
+offset_right = 697.0
+offset_bottom = 454.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="Start" parent="VBoxContainer" instance=ExtResource("2_p3fck")]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_sa3yf")
+theme_override_styles/hover = SubResource("StyleBoxFlat_s4lrb")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mgrm8")
+theme_override_styles/normal = SubResource("StyleBoxFlat_sa3yf")
 text = "Start"
 
-[node name="Credits" parent="." instance=ExtResource("2_p3fck")]
-layout_mode = 0
-offset_left = 442.0
-offset_top = 355.0
-offset_right = 698.0
-offset_bottom = 419.0
+[node name="Credits" parent="VBoxContainer" instance=ExtResource("2_p3fck")]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_sa3yf")
+theme_override_styles/hover = SubResource("StyleBoxFlat_s4lrb")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mgrm8")
+theme_override_styles/normal = SubResource("StyleBoxFlat_sa3yf")
 text = "Credits"
 
-[node name="VersionNotes" parent="." instance=ExtResource("2_p3fck")]
-layout_mode = 0
-offset_left = 442.0
-offset_top = 451.0
-offset_right = 698.0
-offset_bottom = 515.0
+[node name="VersionNotes" parent="VBoxContainer" instance=ExtResource("2_p3fck")]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_sa3yf")
+theme_override_styles/hover = SubResource("StyleBoxFlat_s4lrb")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mgrm8")
+theme_override_styles/normal = SubResource("StyleBoxFlat_sa3yf")
 text = "Version Notes"
+
+[node name="Quit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_sa3yf")
+theme_override_styles/hover = SubResource("StyleBoxFlat_s4lrb")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mgrm8")
+theme_override_styles/normal = SubResource("StyleBoxFlat_sa3yf")
+text = "Quit"
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[connection signal="button_up" from="Start" to="." method="_on_start_button_up"]
-[connection signal="button_up" from="Credits" to="." method="_on_credits_button_up"]
-[connection signal="button_up" from="VersionNotes" to="." method="_on_version_notes_button_up"]
+[connection signal="button_up" from="VBoxContainer/Start" to="." method="_on_start_button_up"]
+[connection signal="button_up" from="VBoxContainer/Credits" to="." method="_on_credits_button_up"]
+[connection signal="button_up" from="VBoxContainer/VersionNotes" to="." method="_on_version_notes_button_up"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]

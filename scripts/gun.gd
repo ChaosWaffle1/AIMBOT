@@ -10,8 +10,7 @@ extends Node2D
 @onready var bullet_ref = load("res://scenes/bullet.tscn")
 
 func _physics_process(delta):
-	pivot.look_at(get_global_mouse_position())
-	if Input.is_action_just_pressed("click"):
+	if Input.is_action_just_pressed("click") and GlobalVars.moveToggled:
 		fire()
 		
 	var barrelPos = barrel.global_position
@@ -21,6 +20,15 @@ func _physics_process(delta):
 		var colPos = laser_cast.get_collision_point()
 		colPos.x -= 16
 		laser.set_point_position(1, to_local(colPos))
+		
+	if GlobalVars.moveToggled:
+		laser.visible = true
+		barrelPos.y -= 50
+		pivot.look_at(get_global_mouse_position())
+	else:
+		laser.visible = false
+		barrelPos.y += 50
+		pivot.look_at(barrelPos)
 		
 func fire():
 	var bullet: Node2D = bullet_ref.instantiate()

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://brxehlyw3jfgf"
-path="res://.godot/imported/player_sprite.png-f381266f6241ed83214e28c83513eee6.ctex"
+uid="uid://bp3jfy1hb1ejq"
+path="res://.godot/imported/jiles.png-a6808f45e1773f1ca31073610c8c69b9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/player_sprite.png"
-dest_files=["res://.godot/imported/player_sprite.png-f381266f6241ed83214e28c83513eee6.ctex"]
+source_file="res://assets/sprites/jiles.png"
+dest_files=["res://.godot/imported/jiles.png-a6808f45e1773f1ca31073610c8c69b9.ctex"]
 
 [params]
 
