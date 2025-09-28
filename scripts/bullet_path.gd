@@ -5,13 +5,14 @@ const SLOP = 0.999
 var bounces: int = 0
 var finished: bool = false
 
-@export var bullet_speed: float = 10000
-@export var max_bounces: int = 10
+@export var bullet_speed: float = 50000
+@export var max_bounces: int = 20
 
 @onready var path: Path2D = $Path
 @onready var path_follow: PathFollow2D = $Path/PathFollow
 @onready var sight: RayCast2D = $Path/PathFollow/Sight
 @onready var debug_line: Line2D = $DebugLine
+@onready var kill_switch = $KillSwitch
 
 func _ready() -> void:
 	# make unique path to this bullet
@@ -25,8 +26,14 @@ func _ready() -> void:
 	debug_line.add_point(to_local(sight.global_position))
 
 func _physics_process(delta: float) -> void:
-	if bounces >= max_bounces:
+	if not $delay.is_stopped():
+		return
+	if path.curve.point_count > 1000:
 		queue_free()
+		return
+	if bounces >= max_bounces:
+		if kill_switch.is_stopped():
+			kill_switch.start()
 		return
 	var distance_remaining: float = bullet_speed * delta
 	sight.target_position = (bullet_speed*delta) * sight.target_position.normalized()
@@ -55,13 +62,18 @@ func _physics_process(delta: float) -> void:
 		# create a new ray
 		var new_ray = RayCast2D.new()
 		ray.enabled = true
-		ray.add_child(new_ray) 
+		add_child(new_ray) 
 		
 		# position new ray at tip of old ray
 		new_ray.position = SLOP*ray.to_local(hit)
 		
 		# reflect new ray along normal of old ray
-		var dir: Vector2 = ray.to_local(-hit).bounce(normal).normalized()
+		var dir: Vector2 = ray.to_local(hit).bounce(normal).normalized()
 		new_ray.target_position = distance_remaining*dir
 		
 		ray = new_ray
+	print()
+
+
+func _on_timer_timeout() -> void:
+	queue_free()

@@ -12,11 +12,11 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 
 	# Toggle between regular movement and "aim mode"
-	if Input.is_action_just_pressed("moveSwap") and is_on_floor() and not GlobalVars.moveToggled:
+	if Input.is_action_just_pressed("right_click") and is_on_floor() and not GlobalVars.moveToggled:
 		SPEED = 0
 		JUMP_VELOCITY = 0
 		GlobalVars.moveToggled = true
-	elif Input.is_action_just_pressed("moveSwap") and GlobalVars.moveToggled:
+	elif Input.is_action_just_pressed("right_click") and GlobalVars.moveToggled:
 		SPEED = 80.0
 		JUMP_VELOCITY = -300.0
 		GlobalVars.moveToggled = false

@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=4 uid="uid://s8qb6y11104g"]
+[gd_scene load_steps=8 format=4 uid="uid://s8qb6y11104g"]
 
 [ext_resource type="Texture2D" uid="uid://bp3jfy1hb1ejq" path="res://assets/sprites/jiles.png" id="1_dbkse"]
 [ext_resource type="PackedScene" uid="uid://cew2qflt412m6" path="res://scenes/player.tscn" id="2_0n1tn"]
 [ext_resource type="PackedScene" uid="uid://ky2e5kkctsjl" path="res://scenes/robot.tscn" id="3_0n1tn"]
+[ext_resource type="Texture2D" uid="uid://1k6eo65xbgoa" path="res://icon.svg" id="4_oox4p"]
+[ext_resource type="PackedScene" uid="uid://dveaf7k64cejk" path="res://scenes/bullet.tscn" id="5_k2uud"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0n1tn"]
 texture = ExtResource("1_dbkse")
@@ -432,3 +434,18 @@ zoom = Vector2(3, 3)
 
 [node name="Robot" parent="." instance=ExtResource("3_0n1tn")]
 position = Vector2(-16, -16)
+
+[node name="Bullet" parent="." instance=ExtResource("5_k2uud")]
+position = Vector2(-80, 56)
+rotation = 2.95011
+scale = Vector2(1, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-128, 64)
+scale = Vector2(0.0625, 0.0625)
+texture = ExtResource("4_oox4p")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(-128, -72)
+scale = Vector2(0.0625, 0.0625)
+texture = ExtResource("4_oox4p")
