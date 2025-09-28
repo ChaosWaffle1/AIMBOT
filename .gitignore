@@ -16,6 +16,6 @@ export_credentials.cfg
 data_*/
 mono_crash.*.json
 
-test_tiles.xcf
+*.xcf
 .DS_Store
 builds/*
