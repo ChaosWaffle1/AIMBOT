@@ -26,8 +26,8 @@ func _ready() -> void:
 	debug_line.add_point(to_local(sight.global_position))
 
 func _physics_process(delta: float) -> void:
-	if not $delay.is_stopped():
-		return
+	#if not $delay.is_stopped():
+		#return
 	if path.curve.point_count > 1000:
 		queue_free()
 		return
