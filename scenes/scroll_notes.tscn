@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bjogx07xbjswc"]
+[gd_scene load_steps=9 format=3 uid="uid://bjogx07xbjswc"]
 
 [ext_resource type="Script" uid="uid://v6h0jpc053j2" path="res://scripts/scroll.gd" id="1_1f60s"]
 [ext_resource type="Script" uid="uid://cnl2stmse128r" path="res://scripts/scroll_notes.gd" id="1_8jhfi"]
@@ -6,6 +6,32 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4lihp"]
 size = Vector2(369, 502.5)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8jhfi"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_riypv"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nvmf7"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3l2le"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_8jhfi")
@@ -59,8 +85,16 @@ offset_left = 319.0
 offset_top = 497.0
 offset_right = 545.0
 offset_bottom = 574.0
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8jhfi")
+theme_override_styles/hover = SubResource("StyleBoxFlat_riypv")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_nvmf7")
+theme_override_styles/normal = SubResource("StyleBoxFlat_3l2le")
 text = "Back"
 
-[connection signal="button_up" from="Back" to="." method="_on_button_button_up"]
 [connection signal="button_up" from="Back" to="." method="_on_back_button_up"]
+[connection signal="button_up" from="Back" to="." method="_on_button_button_up"]
