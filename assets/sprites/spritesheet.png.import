@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1m7iu77x07eh"
-path="res://.godot/imported/Walking Animation.png-1ee8a99a1faa4886aa6a97a8fbc5e90f.ctex"
+uid="uid://ckv5081bllfui"
+path="res://.godot/imported/spritesheet.png-a800b538654c83c24a714b50cffb799a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Walking Animation.png"
-dest_files=["res://.godot/imported/Walking Animation.png-1ee8a99a1faa4886aa6a97a8fbc5e90f.ctex"]
+source_file="res://assets/sprites/spritesheet.png"
+dest_files=["res://.godot/imported/spritesheet.png-a800b538654c83c24a714b50cffb799a.ctex"]
 
 [params]
 
