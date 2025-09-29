@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cw1kbvx3hp30k"
-path="res://.godot/imported/WPI_splash_logo.png-4d1be1941418e7943b0ff486c13a3c18.ctex"
+uid="uid://bp3jfy1hb1ejq"
+path="res://.godot/imported/jiles.png-a6808f45e1773f1ca31073610c8c69b9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/WPI_splash_logo.png"
-dest_files=["res://.godot/imported/WPI_splash_logo.png-4d1be1941418e7943b0ff486c13a3c18.ctex"]
+source_file="res://assets/sprites/jiles.png"
+dest_files=["res://.godot/imported/jiles.png-a6808f45e1773f1ca31073610c8c69b9.ctex"]
 
 [params]
 
