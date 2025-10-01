@@ -6,7 +6,7 @@ var bounces: int = 0
 var finished: bool = false
 
 @export var bullet_speed: float = 2000
-@export var max_bounces: int = 200
+@export var max_bounces: int = 2000
 
 @onready var path: Path2D = $Path
 @onready var path_follow: PathFollow2D = $Path/PathFollow
@@ -21,8 +21,6 @@ func _ready() -> void:
 	path.curve.add_point(path.position)
 	debug_line.add_point(path.position)
 	
-	#global_rotation = 0
-
 func _physics_process(delta: float) -> void:
 	var first_ray = true
 	if path.curve.point_count > 500:
@@ -38,7 +36,11 @@ func _physics_process(delta: float) -> void:
 	var ray: RayCast2D = RayCast2D.new()
 	var orig_ray: RayCast2D = ray
 	ray.position = to_local(bullet_sprite.global_position)
+	print(bullet_sprite.global_rotation*180/PI)
 	ray.target_position = distance_remaining * Vector2.RIGHT.rotated(path_follow.global_rotation)
+	global_rotation = 0
+	
+	print(ray.target_position)
 	add_child(ray)
 		
 	while bounces < max_bounces + 1:			
