@@ -10,7 +10,6 @@ var finished: bool = false
 
 @onready var path: Path2D = $Path
 @onready var path_follow: PathFollow2D = $Path/PathFollow
-@onready var sight: RayCast2D = $Path/PathFollow/Sight
 @onready var debug_line: Line2D = $DebugLine
 @onready var kill_switch = $KillSwitch
 
@@ -18,12 +17,8 @@ func _ready() -> void:
 	# make unique path to this bullet
 	path.curve = Curve2D.new()
 	
-	# "transfer" the nodes rotation to sight
-	sight.target_position = Vector2(1,0).rotated(rotation)
-	rotation = 0
-	
-	path.curve.add_point(sight.position)
-	debug_line.add_point(to_local(sight.global_position))
+	path.curve.add_point(path.position)
+	debug_line.add_point(path.position)
 
 func _physics_process(delta: float) -> void:
 	if path.curve.point_count > 500:
@@ -36,16 +31,11 @@ func _physics_process(delta: float) -> void:
 		return
 		
 	var distance_remaining: float = bullet_speed * delta
-	var ray: RayCast2D = sight
-
-	ray.force_raycast_update()
-	if (ray.global_position + ray.target_position).x < -144:
-		pass
-
-	print(str(ray.global_position) + " " + str(ray.global_position + ray.target_position))
-	print(ray.is_colliding())
-	
-	#TODO: WHY DOES THIS NOT REGISTER UNTIL THE NEXT FRAME??????????
+	if global_rotation != 0:
+		pass # do thing that include
+	else:
+		var ray: RayCast2D = RayCast2D.new()
+		ray.target_position = distance_remaining * Vector2.RIGHT
 	
 	while bounces < max_bounces:			
 		ray.force_raycast_update() # why do i need this here :(
