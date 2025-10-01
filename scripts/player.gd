@@ -20,6 +20,7 @@ func _physics_process(delta: float) -> void:
 		SPEED = 80.0
 		JUMP_VELOCITY = -300.0
 		GlobalVars.moveToggled = false
+	
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
@@ -29,10 +30,24 @@ func _physics_process(delta: float) -> void:
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("left", "right")
 	
-	if direction > 0:
+	if GlobalVars.moveToggled:
+		if get_global_mouse_position().y < $Gun.global_position.y - 60:
+			sprite.play("shoot_up")
+		else:
+			sprite.play("shoot_side")
+	elif direction == 0:
+		sprite.play("idle")
+	else:
+		sprite.play("walk")
+	
+	if direction > 0 and not GlobalVars.moveToggled:
 		sprite.flip_h = false
-	elif direction < 0:
+	elif direction < 0 and not GlobalVars.moveToggled:
 		sprite.flip_h = true
+	elif GlobalVars.moveToggled and get_global_mouse_position().x < $Gun.global_position.x:
+		sprite.flip_h = true
+	elif GlobalVars.moveToggled and get_global_mouse_position().x > $Gun.global_position.x:
+		sprite.flip_h = false
 	
 	if direction:
 		velocity.x = direction * SPEED
