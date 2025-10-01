@@ -6,7 +6,7 @@ var bounces: int = 0
 var finished: bool = false
 
 @export var bullet_speed: float = 2000
-@export var max_bounces: int = 2
+@export var max_bounces: int = 200
 
 @onready var path: Path2D = $Path
 @onready var path_follow: PathFollow2D = $Path/PathFollow
@@ -20,6 +20,8 @@ func _ready() -> void:
 	
 	path.curve.add_point(path.position)
 	debug_line.add_point(path.position)
+	
+	#global_rotation = 0
 
 func _physics_process(delta: float) -> void:
 	var first_ray = true
@@ -27,7 +29,7 @@ func _physics_process(delta: float) -> void:
 		queue_free()
 		return
 		
-	if bounces >= max_bounces:
+	if bounces >= max_bounces + 1:
 		if kill_switch.is_stopped():
 			kill_switch.start()
 		return
@@ -36,11 +38,10 @@ func _physics_process(delta: float) -> void:
 	var ray: RayCast2D = RayCast2D.new()
 	var orig_ray: RayCast2D = ray
 	ray.position = to_local(bullet_sprite.global_position)
-	ray.target_position = distance_remaining * Vector2.RIGHT.rotated(bullet_sprite.global_rotation)
-	print(bullet_sprite.global_rotation)
+	ray.target_position = distance_remaining * Vector2.RIGHT.rotated(path_follow.global_rotation)
 	add_child(ray)
 		
-	while bounces < max_bounces:			
+	while bounces < max_bounces + 1:			
 		ray.force_raycast_update() # why do i need this here :(
 		if not ray.is_colliding():
 			# add target to path as there is no collision this frame
@@ -50,8 +51,9 @@ func _physics_process(delta: float) -> void:
 			return
 		
 		# ray is colliding from this point on
+		print("bounce")
 		bounces += 1
-		
+				
 		# add hit to path
 		var hit: Vector2 = ray.get_collision_point()
 		var normal: Vector2 = ray.get_collision_normal()
@@ -60,8 +62,8 @@ func _physics_process(delta: float) -> void:
 		debug_line.add_point(path.to_local(hit))
 		
 		# subtract off traversed distance before bounce from distance remaining
-		var distance_to_hit = (ray.position - ray.to_local(hit)).length()
-		path_follow.progress += SLOP*distance_to_hit
+		var distance_to_hit = ray.to_local(hit).length()
+		path_follow.progress += distance_to_hit
 		distance_remaining -= distance_to_hit
 		
 		# create a new ray
@@ -70,7 +72,7 @@ func _physics_process(delta: float) -> void:
 		ray.add_child(new_ray) 
 		
 		# position new ray at tip of old ray
-		new_ray.position = SLOP*ray.to_local(hit)
+		new_ray.position = ray.to_local(hit)
 		
 		# reflect new ray along normal of old ray
 		var dir: Vector2 = ray.to_local(hit).bounce(normal).normalized()
