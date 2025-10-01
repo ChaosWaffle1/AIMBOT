@@ -5,13 +5,14 @@ const SLOP = 0.9999
 var bounces: int = 0
 var finished: bool = false
 
-@export var bullet_speed: float = 50
+@export var bullet_speed: float = 2000
 @export var max_bounces: int = 2
 
 @onready var path: Path2D = $Path
 @onready var path_follow: PathFollow2D = $Path/PathFollow
 @onready var debug_line: Line2D = $DebugLine
 @onready var kill_switch = $KillSwitch
+@onready var bullet_sprite = $Path/PathFollow/BulletSprite
 
 func _ready() -> void:
 	# make unique path to this bullet
@@ -21,6 +22,7 @@ func _ready() -> void:
 	debug_line.add_point(path.position)
 
 func _physics_process(delta: float) -> void:
+	var first_ray = true
 	if path.curve.point_count > 500:
 		queue_free()
 		return
@@ -31,12 +33,13 @@ func _physics_process(delta: float) -> void:
 		return
 		
 	var distance_remaining: float = bullet_speed * delta
-	if global_rotation != 0:
-		pass # do thing that include
-	else:
-		var ray: RayCast2D = RayCast2D.new()
-		ray.target_position = distance_remaining * Vector2.RIGHT
-	
+	var ray: RayCast2D = RayCast2D.new()
+	var orig_ray: RayCast2D = ray
+	ray.position = to_local(bullet_sprite.global_position)
+	ray.target_position = distance_remaining * Vector2.RIGHT.rotated(bullet_sprite.global_rotation)
+	print(bullet_sprite.global_rotation)
+	add_child(ray)
+		
 	while bounces < max_bounces:			
 		ray.force_raycast_update() # why do i need this here :(
 		if not ray.is_colliding():
@@ -52,11 +55,6 @@ func _physics_process(delta: float) -> void:
 		# add hit to path
 		var hit: Vector2 = ray.get_collision_point()
 		var normal: Vector2 = ray.get_collision_normal()
-		#
-		#print("bounces:\t" + str(bounces))
-		#print("hit:\t\t" + str(hit))
-		#print("normal:\t\t" + str(normal)) #WHY IS THE NORMAL VECTOR WRONG
-		#print("target:\t\t" + str(ray.target_position))
 		
 		path.curve.add_point(path.to_local(hit))
 		debug_line.add_point(path.to_local(hit))
@@ -64,12 +62,12 @@ func _physics_process(delta: float) -> void:
 		# subtract off traversed distance before bounce from distance remaining
 		var distance_to_hit = (ray.position - ray.to_local(hit)).length()
 		path_follow.progress += SLOP*distance_to_hit
-		distance_remaining -= SLOP*distance_to_hit
+		distance_remaining -= distance_to_hit
 		
 		# create a new ray
 		var new_ray = RayCast2D.new()
 		ray.enabled = true
-		add_child(new_ray) 
+		ray.add_child(new_ray) 
 		
 		# position new ray at tip of old ray
 		new_ray.position = SLOP*ray.to_local(hit)
@@ -79,8 +77,7 @@ func _physics_process(delta: float) -> void:
 		new_ray.target_position = distance_remaining*dir
 		
 		ray = new_ray
-	print()
-
+	orig_ray.queue_free()
 
 func _on_timer_timeout() -> void:
 	queue_free()
