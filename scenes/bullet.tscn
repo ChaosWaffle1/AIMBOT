@@ -1,19 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://dveaf7k64cejk"]
+[gd_scene load_steps=3 format=3 uid="uid://dveaf7k64cejk"]
 
 [ext_resource type="Script" uid="uid://d0mu4wubne3do" path="res://scripts/bullet.gd" id="1_y25gk"]
 [ext_resource type="Texture2D" uid="uid://1k6eo65xbgoa" path="res://icon.svg" id="2_l5glv"]
-
-[sub_resource type="Gradient" id="Gradient_y25gk"]
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_l5glv"]
-gradient = SubResource("Gradient_y25gk")
 
 [node name="Bullet" type="Node2D"]
 script = ExtResource("1_y25gk")
 
 [node name="DebugLine" type="Line2D" parent="."]
 width = 0.5
-texture = SubResource("GradientTexture1D_l5glv")
+default_color = Color(1, 0.866667, 0.152941, 1)
 texture_mode = 1
 
 [node name="Path" type="Path2D" parent="."]

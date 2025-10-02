@@ -69,7 +69,14 @@ Version 3
 - Fixed camera position
 - Added back buttons for menus
 - Cleaned up code
-"
+Version 4:
+- Changed main tile size to 8x8
+- Added connected foreground and background tile textures
+- Added player animations
+- Added gun sprite
+- Added movement and firing mode for player
+- Added bullet bouncing at arbitrary number of bounces and arbitrary speed
+- Added custom fonts"
 metadata/_edit_use_anchors_ = true
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]

@@ -31,7 +31,10 @@ func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("left", "right")
 	
 	if GlobalVars.moveToggled:
-		if get_global_mouse_position().y < $Gun.global_position.y - 60:
+		const center = -90
+		const range = 30
+		var angle = 180*$Gun/Pivot.global_rotation/PI
+		if center - range <= angle and angle <= center + range:
 			sprite.play("shoot_up")
 		else:
 			sprite.play("shoot_side")
