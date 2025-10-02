@@ -1,10 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://cew2qflt412m6"]
+[gd_scene load_steps=19 format=3 uid="uid://cew2qflt412m6"]
 
 [ext_resource type="Script" uid="uid://cwyw6rc8xb10d" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://1hetk5r3a6eh" path="res://assets/sprites/player_shooting.png" id="2_dqkch"]
 [ext_resource type="PackedScene" uid="uid://cx208wp68sh2u" path="res://scenes/gun.tscn" id="2_qhqgy"]
 [ext_resource type="Texture2D" uid="uid://5dx5jgq130li" path="res://assets/sprites/Idle Animation.png" id="2_qlg0r"]
 [ext_resource type="Texture2D" uid="uid://1m7iu77x07eh" path="res://assets/sprites/player_walking.png" id="4_tuyoq"]
+[ext_resource type="AudioStream" uid="uid://c4wmp4tumyygv" path="res://assets/sounds/gun_reload.wav" id="6_tuyoq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fjrip"]
 atlas = ExtResource("2_qlg0r")
@@ -118,3 +119,7 @@ shape = SubResource("RectangleShape2D_qhqgy")
 
 [node name="Gun" parent="." instance=ExtResource("2_qhqgy")]
 position = Vector2(0, -14)
+
+[node name="GunReload" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_tuyoq")
+bus = &"SFX"

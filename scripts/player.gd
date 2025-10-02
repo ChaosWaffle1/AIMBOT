@@ -5,6 +5,7 @@ var SPEED = 80.0
 var JUMP_VELOCITY = -300.0
 
 @onready var sprite = $AnimatedSprite2D 
+@onready var sfx_gun_reload = $GunReload
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -16,6 +17,9 @@ func _physics_process(delta: float) -> void:
 		SPEED = 0
 		JUMP_VELOCITY = 0
 		GlobalVars.moveToggled = true
+		sfx_gun_reload.pitch_scale = randf_range(0.9,1.1)
+		sfx_gun_reload.play()
+		print("RAHFBADVHOAFJLNFJOAEFJLDJFLHAJKLFAJKLFJKAHFKLAHDFJK")
 	elif Input.is_action_just_pressed("right_click") and GlobalVars.moveToggled:
 		SPEED = 80.0
 		JUMP_VELOCITY = -300.0

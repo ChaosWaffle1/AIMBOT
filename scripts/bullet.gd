@@ -6,13 +6,14 @@ var bounces: int = 0
 var finished: bool = false
 
 @export var bullet_speed: float = 3000
-@export var max_bounces: int = 20
+@export var max_bounces: int = 200
 
 @onready var path: Path2D = $Path
 @onready var path_follow: PathFollow2D = $Path/PathFollow
 @onready var debug_line: Line2D = $DebugLine
 @onready var kill_switch = $KillSwitch
 @onready var bullet_sprite = $Path/PathFollow/BulletSprite
+@onready var ricochet_sounds = $Path/PathFollow/RichochetSounds
 
 func _ready() -> void:
 	# make unique path to this bullet
@@ -64,6 +65,12 @@ func _physics_process(delta: float) -> void:
 		var distance_to_hit = ray.to_local(hit).length()
 		path_follow.progress += distance_to_hit
 		distance_remaining -= distance_to_hit
+		
+		# play ricochet sound
+		var sound: AudioStreamPlayer2D = ricochet_sounds.get_children().pick_random()
+		sound.pitch_scale = randf_range(0.9,1.1)
+		sound.attenuation = 6
+		sound.play()
 		
 		# create a new ray
 		var new_ray = RayCast2D.new()
