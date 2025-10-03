@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://dveaf7k64cejk"]
 
-[ext_resource type="Script" uid="uid://d0mu4wubne3do" path="res://scripts/bullet.gd" id="1_y25gk"]
+[ext_resource type="Script" path="res://scripts/bullet.gd" id="1_y25gk"]
 [ext_resource type="Texture2D" uid="uid://1k6eo65xbgoa" path="res://icon.svg" id="2_l5glv"]
 [ext_resource type="AudioStream" uid="uid://b67v2iabe53pn" path="res://assets/sounds/bullet_ricochet_1.wav" id="2_tamys"]
 [ext_resource type="AudioStream" uid="uid://bl5gpm4cbv4mf" path="res://assets/sounds/bullet_ricochet_2.wav" id="3_26lx3"]
