@@ -38,6 +38,11 @@ folder_colors={
 "res://shaders/": "pink"
 }
 
+[global_group]
+
+robot=""
+player=""
+
 [gui]
 
 theme/custom_font="uid://b83l5xpl0qooi"
