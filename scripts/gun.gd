@@ -6,6 +6,7 @@ extends Node2D
 @onready var barrel = $Pivot/Barrel
 @onready var laser = $Laser
 @onready var laser_cast = $Pivot/Barrel/LaserCast
+@onready var sfx_gunshot = $Gunshot
 
 @onready var bullet_ref = load("res://scenes/bullet.tscn")
 
@@ -31,6 +32,8 @@ func _physics_process(delta):
 		pivot.look_at(barrelPos)
 		
 func fire():
+	sfx_gunshot.pitch_scale = randf_range(0.8, 1.2)
+	sfx_gunshot.play()
 	var bullet: Node2D = bullet_ref.instantiate()
 	get_tree().get_current_scene().add_child(bullet)	# set parent of path to global scene (the level)
 	bullet.global_position = barrel.global_position
