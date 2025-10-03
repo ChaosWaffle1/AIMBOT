@@ -3,10 +3,11 @@ extends Node2D
 const SLOP = 0.9999
 
 var bounces: int = 0
-var finished: bool = false
+var hit_robot: bool = false
+var hit_player: bool = false
 
-@export var bullet_speed: float = 3000
-@export var max_bounces: int = 200
+@export var bullet_speed: float = 2000
+@export var max_bounces: int = 20
 
 @onready var path: Path2D = $Path
 @onready var path_follow: PathFollow2D = $Path/PathFollow
@@ -14,6 +15,8 @@ var finished: bool = false
 @onready var kill_switch = $KillSwitch
 @onready var bullet_sprite = $Path/PathFollow/BulletSprite
 @onready var ricochet_sounds = $Path/PathFollow/RichochetSounds
+
+#TODO HERE:
 
 func _ready() -> void:
 	# make unique path to this bullet
@@ -27,8 +30,14 @@ func _physics_process(delta: float) -> void:
 	if path.curve.point_count > 500:
 		queue_free()
 		return
-		
-	if bounces >= max_bounces + 1:
+	var go = not (hit_robot or hit_player or bounces >= max_bounces + 1) 
+	if not go:
+		if hit_robot:
+			pass
+		elif hit_player:
+			pass
+		elif bounces >= max_bounces + 1:
+			pass
 		if kill_switch.is_stopped():
 			kill_switch.start()
 		return
@@ -42,7 +51,7 @@ func _physics_process(delta: float) -> void:
 	
 	add_child(ray)
 		
-	while bounces < max_bounces + 1:			
+	while go:			
 		ray.force_raycast_update() # why do i need this here :(
 		if not ray.is_colliding():
 			# add target to path as there is no collision this frame
@@ -57,7 +66,14 @@ func _physics_process(delta: float) -> void:
 		# add hit to path
 		var hit: Vector2 = ray.get_collision_point()
 		var normal: Vector2 = ray.get_collision_normal()
-		
+		var collider = ray.get_collider()
+		if collider.is_in_group("robot"):
+			print("hit robot")
+			hit_robot = true
+		if collider.is_in_group("player"):
+			print("hit player")
+			hit_player = true
+				
 		path.curve.add_point(path.to_local(hit))
 		debug_line.add_point(path.to_local(hit))
 		
@@ -65,6 +81,10 @@ func _physics_process(delta: float) -> void:
 		var distance_to_hit = ray.to_local(hit).length()
 		path_follow.progress += distance_to_hit
 		distance_remaining -= distance_to_hit
+		
+		go = not (hit_robot or hit_player or bounces >= max_bounces + 1) 
+		if not go: #skip casting new ray if the bullet is done bouncing or has hit something
+			continue
 		
 		# play ricochet sound
 		var sound: AudioStreamPlayer2D = ricochet_sounds.get_children().pick_random()

@@ -2,7 +2,8 @@
 
 [ext_resource type="Script" uid="uid://cwyw6rc8xb10d" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://1hetk5r3a6eh" path="res://assets/sprites/player_shooting.png" id="2_dqkch"]
-[ext_resource type="PackedScene" uid="uid://cj6l3cr66vjsi" path="res://scenes/gun.tscn" id="2_qhqgy"]
+
+[ext_resource type="PackedScene" uid="uid://cx208wp68sh2u" path="res://scenes/objects/gun.tscn" id="2_qhqgy"]
 [ext_resource type="Texture2D" uid="uid://5dx5jgq130li" path="res://assets/sprites/Idle Animation.png" id="2_qlg0r"]
 [ext_resource type="Texture2D" uid="uid://1m7iu77x07eh" path="res://assets/sprites/player_walking.png" id="4_tuyoq"]
 [ext_resource type="AudioStream" uid="uid://c4wmp4tumyygv" path="res://assets/sounds/gun_reload.wav" id="6_tuyoq"]
@@ -103,7 +104,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qhqgy"]
 size = Vector2(6, 28.5237)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_g2els")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i42o3"]
 size = Vector2(8, 8)
 
-[node name="Robot" type="Area2D"]
+[node name="Robot" type="StaticBody2D" groups=["robot"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(4, -4)

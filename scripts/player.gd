@@ -19,7 +19,7 @@ func _physics_process(delta: float) -> void:
 		GlobalVars.moveToggled = true
 		sfx_gun_reload.pitch_scale = randf_range(0.9,1.1)
 		sfx_gun_reload.play()
-		print("RAHFBADVHOAFJLNFJOAEFJLDJFLHAJKLFAJKLFJKAHFKLAHDFJK")
+		
 	elif Input.is_action_just_pressed("right_click") and GlobalVars.moveToggled:
 		SPEED = 80.0
 		JUMP_VELOCITY = -300.0
