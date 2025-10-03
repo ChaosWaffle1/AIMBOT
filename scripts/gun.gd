@@ -8,7 +8,7 @@ extends Node2D
 @onready var laser_cast = $Pivot/Barrel/LaserCast
 @onready var sfx_gunshot = $Gunshot
 
-@onready var bullet_ref = load("res://scenes/bullet.tscn")
+@onready var bullet_ref = load("res://scenes/objects/bullet.tscn")
 
 func _physics_process(delta):
 	if Input.is_action_just_pressed("left_click") and GlobalVars.moveToggled:
