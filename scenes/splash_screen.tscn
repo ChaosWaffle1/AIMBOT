@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cig0arkpnei1t"]
 
-[ext_resource type="Texture2D" uid="uid://cw1kbvx3hp30k" path="res://assets/WPI_splash_logo.png" id="1_6b1b0"]
+[ext_resource type="Texture2D" uid="uid://cw1kbvx3hp30k" path="res://assets/sprites/WPI_splash_logo.png" id="1_6b1b0"]
 [ext_resource type="Script" uid="uid://bi0xfch8mt4i5" path="res://scripts/splash_screen.gd" id="1_wwf30"]
 [ext_resource type="PackedScene" uid="uid://bdfbkxndleffj" path="res://scenes/title_screen.tscn" id="2_h5jmx"]
 

@@ -5,7 +5,7 @@ const SLOP = 0.999
 var bounces: int = 0
 var finished: bool = false
 
-@export var bullet_speed: float = 50000
+@export var bullet_speed: float = 10000
 @export var max_bounces: int = 20
 
 @onready var path: Path2D = $Path
@@ -26,8 +26,8 @@ func _ready() -> void:
 	debug_line.add_point(to_local(sight.global_position))
 
 func _physics_process(delta: float) -> void:
-	#if not $delay.is_stopped():
-		#return
+	if not $delay.is_stopped():
+		return
 	if path.curve.point_count > 1000:
 		queue_free()
 		return
@@ -36,9 +36,9 @@ func _physics_process(delta: float) -> void:
 			kill_switch.start()
 		return
 	var distance_remaining: float = bullet_speed * delta
-	sight.target_position = (bullet_speed*delta) * sight.target_position.normalized()
+	sight.target_position = distance_remaining * sight.target_position.normalized()
 	var ray: RayCast2D = sight
-	while bounces < max_bounces:			
+	while bounces < max_bounces:
 		ray.force_raycast_update() # why do i need this here :(
 		if not ray.is_colliding():
 			# add target to path as there is no collision this frame
@@ -46,12 +46,12 @@ func _physics_process(delta: float) -> void:
 			debug_line.add_point(path.to_local(ray.global_position) + ray.target_position)
 			path_follow.progress += SLOP*distance_remaining
 			return
-			
+		
 		bounces += 1
 		# add hit to path
 		var hit: Vector2 = ray.get_collision_point()
 		var normal: Vector2 = ray.get_collision_normal()
-		path.curve.add_point(path.to_local(hit))
+		path.curve.add_point(path.to_local(hit)) #maybe need to add slop
 		debug_line.add_point(path.to_local(hit))
 		
 		# subtract off traversed distance before bounce from distance remaining

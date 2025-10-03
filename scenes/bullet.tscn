@@ -12,6 +12,7 @@ gradient = SubResource("Gradient_y25gk")
 script = ExtResource("1_y25gk")
 
 [node name="DebugLine" type="Line2D" parent="."]
+points = PackedVector2Array(0, 0)
 width = 0.5
 texture = SubResource("GradientTexture1D_l5glv")
 texture_mode = 1
@@ -19,7 +20,8 @@ texture_mode = 1
 [node name="Path" type="Path2D" parent="."]
 
 [node name="PathFollow" type="PathFollow2D" parent="Path"]
-rotates = false
+rotation = -0.00772185
+progress = 350.073
 
 [node name="Sight" type="RayCast2D" parent="Path/PathFollow"]
 target_position = Vector2(25, 0)
