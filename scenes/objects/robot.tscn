@@ -1,26 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://ky2e5kkctsjl"]
+[gd_scene load_steps=5 format=3 uid="uid://ky2e5kkctsjl"]
 
 [ext_resource type="Texture2D" uid="uid://cwkw7pglt3xv4" path="res://assets/sprites/robot.png" id="1_br0rw"]
-
-[sub_resource type="GDScript" id="GDScript_g5ps2"]
-script/source = "extends StaticBody2D
-
-var sfx_hum = preload(\"res://assets/sounds/robot_humming.wav\")
-
-@onready var stream = $AudioStreamPlayer2D
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	if !stream.is_playing():
-		#$AudioStreamPlayer2D.stream = hum
-		#$AudioStreamPlayer2D.play()
-"
+[ext_resource type="AudioStream" uid="uid://dee1kjvp5swg4" path="res://assets/sounds/robot_humming.wav" id="2_j7cij"]
+[ext_resource type="AudioStream" uid="uid://bahimx45kll0f" path="res://assets/sounds/robot_explosion.wav" id="3_dkegw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i42o3"]
 size = Vector2(8, 8)
 
 [node name="Robot" type="StaticBody2D" groups=["robot"]]
-script = SubResource("GDScript_g5ps2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(4, -4)
@@ -30,5 +17,12 @@ shape = SubResource("RectangleShape2D_i42o3")
 position = Vector2(4, -4)
 texture = ExtResource("1_br0rw")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="Hum" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(4, -4)
+stream = ExtResource("2_j7cij")
+autoplay = true
+bus = &"SFX"
+
+[node name="Explosion" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_dkegw")
+bus = &"SFX"

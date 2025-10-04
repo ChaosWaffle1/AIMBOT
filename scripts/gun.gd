@@ -4,15 +4,19 @@ extends Node2D
 
 @onready var pivot = $Pivot
 @onready var barrel = $Pivot/Barrel
+@onready var timer = $Timer
 @onready var laser = $Laser
 @onready var laser_cast = $Pivot/Barrel/LaserCast
 @onready var sfx_gunshot = $Gunshot
+@onready var sfx_reload = $Reload
 
 @onready var bullet_ref = load("res://scenes/objects/bullet.tscn")
 
 func _physics_process(delta):
-	if Input.is_action_just_pressed("left_click") and GlobalVars.moveToggled:
+	if Input.is_action_just_pressed("left_click") and GlobalVars.moveToggled and timer.is_stopped():
 		fire()
+		timer.start()
+		sfx_reload.play()
 		
 	var barrelPos = barrel.global_position
 	barrelPos.x -= 16

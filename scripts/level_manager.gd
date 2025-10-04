@@ -19,6 +19,7 @@ func connect_bullet_signals(bullet):
 
 func restart_level():
 	get_tree().reload_current_scene()
+	GlobalVars.moveToggled = false
 
 func advance_level():
 	await get_tree().create_timer(level_advance_time).timeout
