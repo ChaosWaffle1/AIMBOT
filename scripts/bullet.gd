@@ -35,6 +35,8 @@ func _physics_process(delta: float) -> void:
 		return
 	var go = keep_going()
 	if not go:
+		debug_line.visible = false
+		bullet_sprite.visible = false
 		if has_hit_robot:
 			hit_robot.emit()
 		elif has_hit_player:
