@@ -7,7 +7,7 @@ var hit_robot: bool = false
 var hit_player: bool = false
 
 @export var bullet_speed: float = 2000
-@export var max_bounces: int = 20
+@export var max_bounces: int = 3
 
 @onready var path: Path2D = $Path
 @onready var path_follow: PathFollow2D = $Path/PathFollow

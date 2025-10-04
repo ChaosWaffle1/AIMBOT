@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://dveaf7k64cejk"]
 
-[ext_resource type="Script" path="res://scripts/bullet.gd" id="1_y25gk"]
-[ext_resource type="Texture2D" uid="uid://1k6eo65xbgoa" path="res://icon.svg" id="2_l5glv"]
+[ext_resource type="Script" uid="uid://d0mu4wubne3do" path="res://scripts/bullet.gd" id="1_y25gk"]
 [ext_resource type="AudioStream" uid="uid://b67v2iabe53pn" path="res://assets/sounds/bullet_ricochet_1.wav" id="2_tamys"]
 [ext_resource type="AudioStream" uid="uid://bl5gpm4cbv4mf" path="res://assets/sounds/bullet_ricochet_2.wav" id="3_26lx3"]
 [ext_resource type="AudioStream" uid="uid://dojbln3ar351m" path="res://assets/sounds/bullet_ricochet_3.wav" id="4_1cfmv"]
 [ext_resource type="AudioStream" uid="uid://cxy0ynp84pyr6" path="res://assets/sounds/bullet_ricochet_4.wav" id="5_k76ql"]
+[ext_resource type="Texture2D" uid="uid://cwwrbo5yphdsg" path="res://assets/sprites/bullet sprite.png" id="6_w0gkw"]
 
 [node name="Bullet" type="Node2D"]
 script = ExtResource("1_y25gk")
@@ -37,8 +37,7 @@ stream = ExtResource("5_k76ql")
 
 [node name="BulletSprite" type="Sprite2D" parent="Path/PathFollow"]
 position = Vector2(1.78814e-07, 1.19209e-07)
-scale = Vector2(0.03125, 0.03125)
-texture = ExtResource("2_l5glv")
+texture = ExtResource("6_w0gkw")
 
 [node name="KillSwitch" type="Timer" parent="."]
 process_callback = 0
