@@ -3,8 +3,8 @@ extends Node2D
 const SLOP = 0.9999
 
 var bounces: int = 0
-var hit_robot: bool = false
-var hit_player: bool = false
+var has_hit_robot: bool = false
+var has_hit_player: bool = false
 
 @export var bullet_speed: float = 2000
 @export var max_bounces: int = 3
@@ -16,7 +16,8 @@ var hit_player: bool = false
 @onready var bullet_sprite = $Path/PathFollow/BulletSprite
 @onready var ricochet_sounds = $Path/PathFollow/RichochetSounds
 
-#TODO HERE:
+signal hit_robot
+signal hit_player
 
 func _ready() -> void:
 	# make unique path to this bullet
@@ -25,17 +26,21 @@ func _ready() -> void:
 	path.curve.add_point(path.position)
 	debug_line.add_point(path.position)
 	
+	GameManager.get_node("LevelManager").connect_bullet_signals(self)
+	
 func _physics_process(delta: float) -> void:
 	var first_ray = true
 	if path.curve.point_count > 500:
 		queue_free()
 		return
-	var go = not (hit_robot or hit_player or bounces >= max_bounces + 1) 
+	var go = keep_going()
 	if not go:
-		if hit_robot:
-			pass
-		elif hit_player:
-			pass
+		debug_line.visible = false
+		bullet_sprite.visible = false
+		if has_hit_robot:
+			hit_robot.emit()
+		elif has_hit_player:
+			hit_player.emit()
 		elif bounces >= max_bounces + 1:
 			pass
 		if kill_switch.is_stopped():
@@ -69,10 +74,10 @@ func _physics_process(delta: float) -> void:
 		var collider = ray.get_collider()
 		if collider.is_in_group("robot"):
 			print("hit robot")
-			hit_robot = true
+			has_hit_robot = true
 		if collider.is_in_group("player"):
 			print("hit player")
-			hit_player = true
+			has_hit_player = true
 				
 		path.curve.add_point(path.to_local(hit))
 		debug_line.add_point(path.to_local(hit))
@@ -82,7 +87,7 @@ func _physics_process(delta: float) -> void:
 		path_follow.progress += distance_to_hit
 		distance_remaining -= distance_to_hit
 		
-		go = not (hit_robot or hit_player or bounces >= max_bounces + 1) 
+		go = keep_going()
 		if not go: #skip casting new ray if the bullet is done bouncing or has hit something
 			continue
 		
@@ -106,6 +111,9 @@ func _physics_process(delta: float) -> void:
 		
 		ray = new_ray
 	orig_ray.queue_free()
+
+func keep_going() -> bool:
+	return not (has_hit_robot or has_hit_player or bounces >= max_bounces + 1) 
 
 func _on_timer_timeout() -> void:
 	queue_free()

@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://ky2e5kkctsjl"]
+[gd_scene load_steps=5 format=3 uid="uid://ky2e5kkctsjl"]
 
 [ext_resource type="Texture2D" uid="uid://cwkw7pglt3xv4" path="res://assets/sprites/robot.png" id="1_br0rw"]
+[ext_resource type="AudioStream" uid="uid://dee1kjvp5swg4" path="res://assets/sounds/robot_humming.wav" id="2_j7cij"]
+[ext_resource type="AudioStream" uid="uid://bahimx45kll0f" path="res://assets/sounds/robot_explosion.wav" id="3_dkegw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i42o3"]
 size = Vector2(8, 8)
@@ -14,3 +16,13 @@ shape = SubResource("RectangleShape2D_i42o3")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(4, -4)
 texture = ExtResource("1_br0rw")
+
+[node name="Hum" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(4, -4)
+stream = ExtResource("2_j7cij")
+autoplay = true
+bus = &"SFX"
+
+[node name="Explosion" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_dkegw")
+bus = &"SFX"
