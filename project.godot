@@ -22,7 +22,7 @@ config/icon="res://icon.svg"
 
 GlobalSFX="*res://scenes/global_sfx.tscn"
 GlobalVars="*res://scripts/global_vars.gd"
-GameManager="*res://scenes/Game_manager.tscn"
+GameManager="*res://scenes/game_manager.tscn"
 
 [display]
 
@@ -46,7 +46,7 @@ player=""
 
 [gui]
 
-theme/custom_font="uid://b83l5xpl0qooi"
+theme/custom_font="uid://bqw7v17m8o83c"
 
 [input]
 
