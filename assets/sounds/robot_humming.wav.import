@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://dee1kjvp5swg4"
-path="res://.godot/imported/robot-humming.wav-20530cb5740614850555fa40cb5a4fe3.sample"
+path="res://.godot/imported/robot_humming.wav-81adfeaee52069c55e3bd7bb81530f54.sample"
 
 [deps]
 
-source_file="res://assets/sounds/robot-humming.wav"
-dest_files=["res://.godot/imported/robot-humming.wav-20530cb5740614850555fa40cb5a4fe3.sample"]
+source_file="res://assets/sounds/robot_humming.wav"
+dest_files=["res://.godot/imported/robot_humming.wav-81adfeaee52069c55e3bd7bb81530f54.sample"]
 
 [params]
 

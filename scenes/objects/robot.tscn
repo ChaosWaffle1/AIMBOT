@@ -5,13 +5,15 @@
 [sub_resource type="GDScript" id="GDScript_g5ps2"]
 script/source = "extends StaticBody2D
 
-var hum = preload(\"res://assets/sounds/robot-humming.wav\")
+var sfx_hum = preload(\"res://assets/sounds/robot_humming.wav\")
+
+@onready var stream = $AudioStreamPlayer2D
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if !$AudioStreamPlayer2D.is_playing():
-		$AudioStreamPlayer2D.stream = hum
-		$AudioStreamPlayer2D.play()
+	if !stream.is_playing():
+		#$AudioStreamPlayer2D.stream = hum
+		#$AudioStreamPlayer2D.play()
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i42o3"]

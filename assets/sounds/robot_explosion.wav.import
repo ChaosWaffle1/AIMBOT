@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bahimx45kll0f"
-path="res://.godot/imported/robot-explosion.wav-fa1b67a7c521665e6e76eda59dcd876f.sample"
+path="res://.godot/imported/robot_explosion.wav-5c241392b226d84ab13da53e1fb85d0d.sample"
 
 [deps]
 
-source_file="res://assets/sounds/robot-explosion.wav"
-dest_files=["res://.godot/imported/robot-explosion.wav-fa1b67a7c521665e6e76eda59dcd876f.sample"]
+source_file="res://assets/sounds/robot_explosion.wav"
+dest_files=["res://.godot/imported/robot_explosion.wav-5c241392b226d84ab13da53e1fb85d0d.sample"]
 
 [params]
 
