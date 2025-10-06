@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 var SPEED = 80.0
-var JUMP_VELOCITY = -250.0
+var JUMP_VELOCITY = -200.0
 
 var freeze = false
 var dying = false
