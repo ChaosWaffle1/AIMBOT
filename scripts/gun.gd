@@ -10,10 +10,17 @@ extends Node2D
 @onready var sfx_gunshot = $Gunshot
 @onready var sfx_reload = $Reload
 
+
 @onready var bullet_ref = load("res://scenes/objects/bullet.tscn")
 
 func _physics_process(delta):
-	if Input.is_action_just_pressed("left_click") and GlobalVars.moveToggled and timer.is_stopped():
+	var notPointingDown = true
+	var mouse = get_global_mouse_position()
+	if mouse.x > $".".global_position.x - 3.5 and mouse.x < $".".global_position.x + 3.5 and mouse.y > $".".global_position.y:
+		notPointingDown = false
+	else:
+		notPointingDown = true
+	if Input.is_action_just_pressed("left_click") and GlobalVars.moveToggled and timer.is_stopped() and notPointingDown:
 		fire()
 		timer.start()
 		sfx_reload.play()
@@ -29,7 +36,7 @@ func _physics_process(delta):
 	if GlobalVars.moveToggled:
 		laser.visible = true
 		barrelPos.y -= 50
-		pivot.look_at(get_global_mouse_position())
+		pivot.look_at(mouse)
 	else:
 		laser.visible = false
 		barrelPos.y += 50
