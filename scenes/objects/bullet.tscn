@@ -45,5 +45,6 @@ texture = ExtResource("6_w0gkw")
 
 [node name="KillSwitch" type="Timer" parent="."]
 process_callback = 0
+wait_time = 6.889
 
 [connection signal="timeout" from="KillSwitch" to="." method="_on_timer_timeout"]

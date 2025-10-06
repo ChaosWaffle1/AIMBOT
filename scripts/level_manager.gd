@@ -17,10 +17,14 @@ func connect_bullet_signals(bullet):
 	# why the fuck did this randomly stop working
 	# TODO fix this
 	bullet.hit_robot.connect(get_tree().get_first_node_in_group("robot").explode)
+	bullet.hit_robot.connect(get_tree().get_first_node_in_group("player").win)
+
+	bullet.hit_player.connect(get_tree().get_first_node_in_group("player").die)
 	bullet.hit_robot.connect(advance_level)	
 	bullet.hit_player.connect(restart_level)
 
 func restart_level():
+	await get_tree().create_timer(0.5*level_advance_time).timeout
 	get_tree().reload_current_scene()
 	GlobalVars.moveToggled = false
 

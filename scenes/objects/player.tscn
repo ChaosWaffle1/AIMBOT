@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cew2qflt412m6"]
+[gd_scene load_steps=20 format=3 uid="uid://cew2qflt412m6"]
 
 [ext_resource type="Script" uid="uid://cwyw6rc8xb10d" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://1hetk5r3a6eh" path="res://assets/sprites/player_shooting.png" id="2_dqkch"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://5dx5jgq130li" path="res://assets/sprites/Idle Animation.png" id="2_qlg0r"]
 [ext_resource type="Texture2D" uid="uid://1m7iu77x07eh" path="res://assets/sprites/player_walking.png" id="4_tuyoq"]
 [ext_resource type="AudioStream" uid="uid://c4wmp4tumyygv" path="res://assets/sounds/gun_equip.wav" id="6_tuyoq"]
+[ext_resource type="AudioStream" uid="uid://clfixfg6nv10g" path="res://assets/sounds/player_die.ogg" id="7_2rlf8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fjrip"]
 atlas = ExtResource("2_qlg0r")
@@ -126,3 +127,7 @@ position = Vector2(0, -14)
 scale = Vector2(1, 1.00202)
 stream = ExtResource("6_tuyoq")
 bus = &"Gun"
+
+[node name="Death" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_2rlf8")
+bus = &"Player Dying"

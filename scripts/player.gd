@@ -4,19 +4,38 @@ extends CharacterBody2D
 var SPEED = 80.0
 var JUMP_VELOCITY = -250.0
 
+var freeze = false
+var dying = false
+
 @onready var sprite = $AnimatedSprite2D 
 @onready var sfx_gun_equip = $GunEquip
+@onready var sfx_death = $Death
 @onready var listener = $AudioListener2D
 
 func _ready():
 	listener.clear_current()
 	listener.make_current()
 
+func win():
+	GlobalVars.moveToggled = false
+	freeze = true
+
+func die():
+	sfx_death.play()
+	GlobalVars.moveToggled = false
+	freeze = true
+	dying = true
+
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-
+		
+	if freeze:
+		if dying:
+			rotation += 1.2*delta
+		return
+	
 	# Toggle between regular movement and "aim mode"
 	if Input.is_action_just_pressed("right_click") and is_on_floor() and not GlobalVars.moveToggled:
 		SPEED = 0
