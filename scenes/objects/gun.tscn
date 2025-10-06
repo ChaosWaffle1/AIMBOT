@@ -17,7 +17,7 @@ visible = false
 material = SubResource("ShaderMaterial_qd4js")
 position = Vector2(16, 0)
 points = PackedVector2Array(0, 0, 500, 0)
-width = 1.2
+width = 0.3
 default_color = Color(0.92549, 0, 0.0862745, 0.521569)
 end_cap_mode = 2
 

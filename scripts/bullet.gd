@@ -6,8 +6,9 @@ var bounces: int = 0
 var has_hit_robot: bool = false
 var has_hit_player: bool = false
 var hit_frame_done: bool = false
+var removing_points: bool = false
 
-@export var bullet_speed: float = 2000
+@export var bullet_speed: float = 1000
 @export var max_bounces: int = 10
 
 @onready var path: Path2D = $Path
@@ -31,6 +32,11 @@ func _ready() -> void:
 	
 func _physics_process(delta: float) -> void:
 	var first_ray = true
+	if debug_line.get_point_count() > 5:
+		removing_points = true
+	if removing_points:
+		if debug_line.get_point_count() > 0:
+			debug_line.remove_point(0)
 	if path.curve.point_count > 500:
 		queue_free()
 		return
@@ -38,7 +44,6 @@ func _physics_process(delta: float) -> void:
 	if not go:
 		if hit_frame_done: # calls once
 			return
-		debug_line.visible = false
 		bullet_sprite.visible = false
 		if has_hit_robot:
 			hit_robot.emit()
@@ -120,4 +125,5 @@ func keep_going() -> bool:
 	return not (has_hit_robot or has_hit_player or bounces >= max_bounces + 1) 
 
 func _on_timer_timeout() -> void:
+	print("gay sex")
 	queue_free()
