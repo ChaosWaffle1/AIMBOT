@@ -36,13 +36,15 @@ texture = ExtResource("3_gp1hk")
 
 [node name="Gunshot" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_qd4js")
-bus = &"SFX"
-
-[node name="Timer" type="Timer" parent="."]
-one_shot = true
+volume_db = -6.255
+bus = &"Gun"
 
 [node name="Reload" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_r0qan")
-bus = &"SFX"
+volume_db = -14.075
+bus = &"Gun"
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
 
 [node name="Timer2" type="Timer" parent="."]

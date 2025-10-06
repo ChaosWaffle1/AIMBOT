@@ -48,9 +48,12 @@ stream = ExtResource("2_gtqgk")
 autoplay = true
 max_distance = 300.0
 attenuation = 8.87655
+bus = &"Robot"
 
 [node name="ExplosionSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_dkegw")
+volume_db = -8.602
+bus = &"Robot"
 
 [node name="ExplosionParticles" parent="." instance=ExtResource("3_j7cij")]
 emitting = false

@@ -2,10 +2,10 @@ extends CharacterBody2D
 
 
 var SPEED = 80.0
-var JUMP_VELOCITY = -300.0
+var JUMP_VELOCITY = -250.0
 
 @onready var sprite = $AnimatedSprite2D 
-@onready var sfx_gun_reload = $GunReload
+@onready var sfx_gun_equip = $GunEquip
 @onready var listener = $AudioListener2D
 
 func _ready():
@@ -22,8 +22,8 @@ func _physics_process(delta: float) -> void:
 		SPEED = 0
 		JUMP_VELOCITY = 0
 		GlobalVars.moveToggled = true
-		sfx_gun_reload.pitch_scale = randf_range(0.9,1.1)
-		sfx_gun_reload.play()
+		sfx_gun_equip.pitch_scale = randf_range(0.9,1.1)
+		sfx_gun_equip.play()
 		
 	elif Input.is_action_just_pressed("right_click") and GlobalVars.moveToggled:
 		SPEED = 80.0

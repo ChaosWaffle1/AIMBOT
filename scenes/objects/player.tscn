@@ -122,6 +122,7 @@ shape = SubResource("RectangleShape2D_qhqgy")
 [node name="Gun" parent="." instance=ExtResource("2_qhqgy")]
 position = Vector2(0, -14)
 
-[node name="GunReload" type="AudioStreamPlayer2D" parent="."]
+[node name="GunEquip" type="AudioStreamPlayer2D" parent="."]
+scale = Vector2(1, 1.00202)
 stream = ExtResource("6_tuyoq")
-bus = &"SFX"
+bus = &"Gun"
