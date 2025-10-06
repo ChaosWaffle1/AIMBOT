@@ -5,6 +5,7 @@ const SLOP = 0.9999
 var bounces: int = 0
 var has_hit_robot: bool = false
 var has_hit_player: bool = false
+var hit_frame_done: bool = false
 
 @export var bullet_speed: float = 2000
 @export var max_bounces: int = 3
@@ -35,6 +36,8 @@ func _physics_process(delta: float) -> void:
 		return
 	var go = keep_going()
 	if not go:
+		if hit_frame_done: # calls once
+			return
 		debug_line.visible = false
 		bullet_sprite.visible = false
 		if has_hit_robot:
@@ -45,6 +48,7 @@ func _physics_process(delta: float) -> void:
 			pass
 		if kill_switch.is_stopped():
 			kill_switch.start()
+		hit_frame_done = true
 		return
 		
 	var distance_remaining: float = bullet_speed * delta

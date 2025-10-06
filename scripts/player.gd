@@ -6,6 +6,11 @@ var JUMP_VELOCITY = -300.0
 
 @onready var sprite = $AnimatedSprite2D 
 @onready var sfx_gun_reload = $GunReload
+@onready var listener = $AudioListener2D
+
+func _ready():
+	listener.clear_current()
+	listener.make_current()
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.

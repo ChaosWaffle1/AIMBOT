@@ -117,6 +117,8 @@ position = Vector2(0, -13.7476)
 scale = Vector2(1, 0.963939)
 shape = SubResource("RectangleShape2D_qhqgy")
 
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
+
 [node name="Gun" parent="." instance=ExtResource("2_qhqgy")]
 position = Vector2(0, -14)
 

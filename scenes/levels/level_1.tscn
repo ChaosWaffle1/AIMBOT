@@ -631,8 +631,9 @@ vertical_alignment = 1
 position = Vector2(-123, 80)
 
 [node name="Robot" parent="." instance=ExtResource("3_4nkto")]
-position = Vector2(104, 56)
+position = Vector2(99, 52)
 scale = Vector2(-1, 1)
+physics_material_override = null
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)

@@ -1,28 +1,57 @@
-[gd_scene load_steps=5 format=3 uid="uid://ky2e5kkctsjl"]
+[gd_scene load_steps=8 format=3 uid="uid://ky2e5kkctsjl"]
 
 [ext_resource type="Texture2D" uid="uid://cwkw7pglt3xv4" path="res://assets/sprites/robot.png" id="1_br0rw"]
-[ext_resource type="AudioStream" uid="uid://dee1kjvp5swg4" path="res://assets/sounds/robot_humming.wav" id="2_j7cij"]
+[ext_resource type="AudioStream" uid="uid://dee1kjvp5swg4" path="res://assets/sounds/robot_humming.wav" id="2_gtqgk"]
 [ext_resource type="AudioStream" uid="uid://bahimx45kll0f" path="res://assets/sounds/robot_explosion.wav" id="3_dkegw"]
+[ext_resource type="PackedScene" uid="uid://b5l4cgatd0sx5" path="res://scenes/explosion.tscn" id="3_j7cij"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_dkegw"]
+
+[sub_resource type="GDScript" id="GDScript_g5ps2"]
+script/source = "extends StaticBody2D
+
+@onready var explosion_sfx = $ExplosionSFX 
+@onready var explosion_particles = $ExplosionParticles
+@onready var sprite = $Sprite2D
+
+var dying = false
+var angular_velocity = 0
+const angular_acceleration = 50
+
+func explode():
+	explosion_particles.emitting = true
+	explosion_sfx.play()
+	dying = true
+
+func _process(delta: float):
+	if dying:
+		angular_velocity += angular_acceleration*delta
+		rotation += angular_velocity*delta
+	
+"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i42o3"]
 size = Vector2(8, 8)
 
 [node name="Robot" type="StaticBody2D" groups=["robot"]]
+physics_material_override = SubResource("PhysicsMaterial_dkegw")
+script = SubResource("GDScript_g5ps2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(4, -4)
 shape = SubResource("RectangleShape2D_i42o3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(4, -4)
 texture = ExtResource("1_br0rw")
 
-[node name="Hum" type="AudioStreamPlayer2D" parent="."]
-position = Vector2(4, -4)
-stream = ExtResource("2_j7cij")
+[node name="HumSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_gtqgk")
 autoplay = true
-bus = &"SFX"
+max_distance = 300.0
+attenuation = 8.87655
 
-[node name="Explosion" type="AudioStreamPlayer2D" parent="."]
+[node name="ExplosionSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_dkegw")
-bus = &"SFX"
+
+[node name="ExplosionParticles" parent="." instance=ExtResource("3_j7cij")]
+emitting = false
+one_shot = true

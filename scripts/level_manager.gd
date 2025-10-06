@@ -3,7 +3,7 @@ extends Node
 
 var level: int = 1
 
-const level_advance_time = 1.0
+const level_advance_time = 2.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -14,6 +14,9 @@ func _process(delta: float) -> void:
 	pass
 	
 func connect_bullet_signals(bullet):
+	# why the fuck did this randomly stop working
+	# TODO fix this
+	bullet.hit_robot.connect(get_tree().get_first_node_in_group("robot").explode)
 	bullet.hit_robot.connect(advance_level)	
 	bullet.hit_player.connect(restart_level)
 
@@ -22,6 +25,7 @@ func restart_level():
 	GlobalVars.moveToggled = false
 
 func advance_level():
+	print("called avance level")
 	await get_tree().create_timer(level_advance_time).timeout
 	
 	var f_path = "res://scenes/levels/level_" + str(level + 1) + ".tscn"
