@@ -50,31 +50,22 @@ offset_top = 4.0
 offset_right = 485.0
 offset_bottom = 46.0
 theme_override_font_sizes/font_size = 30
-text = "Jack Curtis"
+text = "Jack Curtis
+Zhi Hao Liao
+Sam Mascaive
+Nick Wagner
 
-[node name="Label2" type="Label" parent="Panel/Credits"]
-offset_left = 149.0
-offset_top = 65.0
-offset_right = 485.0
-offset_bottom = 107.0
-theme_override_font_sizes/font_size = 30
-text = "Sam Mascaive"
-
-[node name="Label3" type="Label" parent="Panel/Credits"]
-offset_left = 149.0
-offset_top = 126.0
-offset_right = 485.0
-offset_bottom = 168.0
-theme_override_font_sizes/font_size = 30
-text = "Zhi Hao Liao"
-
-[node name="Label4" type="Label" parent="Panel/Credits"]
-offset_left = 150.0
-offset_top = 191.0
-offset_right = 486.0
-offset_bottom = 233.0
-theme_override_font_sizes/font_size = 30
-text = "Nick Wagner"
+Asset Credits:
+gun_shoot.wav -> Gun Sound 4 by TheNikonProductions -- https://freesound.org/s/337699/ -- License: Attribution 3.0
+gun_reload.wav -> Gun_Clip_002AG.wav by Buckine -- https://freesound.org/s/573975/ -- License: Attribution 4.0
+bullet_ricochet_(all of them).wav -> bullet ricochet.wav by aust_paul -- https://freesound.org/s/30932/ -- License: Creative Commons 0
+reload.wav -> awp reload sound.mp3 by GFL7 -- https://freesound.org/s/276956/ -- License: Creative Commons 0
+metal_footsteps.wav -> Footsteps on Metal Platform Wearing Brogues 2.wav by F.M.Audio -- https://freesound.org/s/555289/ -- License: Attribution 4.0
+robot_humming.wav -> Droid Hum by TheSpiderWriter -- https://freesound.org/s/353263/ -- License: Creative Commons 0
+robot_explosion.wav -> SFX_Explosion_20.wav by jalastram -- https://freesound.org/s/317766/ -- License: Attribution 4.0
+player_die.ogg -> Scream 2 by TheSubber13 -- https://freesound.org/s/239901/ -- License: Attribution NonCommercial 3.0
+"
+autowrap_mode = 1
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 script = ExtResource("1_jrn3r")
