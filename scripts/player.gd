@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-var SPEED = 80.0
+var SPEED = 60.0
 var JUMP_VELOCITY = -200.0
 
 var freeze = false
@@ -45,7 +45,7 @@ func _physics_process(delta: float) -> void:
 		sfx_gun_equip.play()
 		
 	elif Input.is_action_just_pressed("right_click") and GlobalVars.moveToggled:
-		SPEED = 80.0
+		SPEED = 50.0
 		JUMP_VELOCITY = -200.0
 		GlobalVars.moveToggled = false
 	

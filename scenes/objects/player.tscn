@@ -121,7 +121,7 @@ shape = SubResource("RectangleShape2D_qhqgy")
 [node name="AudioListener2D" type="AudioListener2D" parent="."]
 
 [node name="Gun" parent="." instance=ExtResource("2_qhqgy")]
-position = Vector2(0, -14)
+position = Vector2(0, -12)
 
 [node name="GunEquip" type="AudioStreamPlayer2D" parent="."]
 scale = Vector2(1, 1.00202)
