@@ -125,5 +125,4 @@ func keep_going() -> bool:
 	return not (has_hit_robot or has_hit_player or bounces >= max_bounces + 1) 
 
 func _on_timer_timeout() -> void:
-	print("gay sex")
 	queue_free()
