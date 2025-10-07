@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://b4yemnx644jl7"]
+[gd_scene load_steps=8 format=4 uid="uid://qa5pcbl4ygsa"]
 
 [ext_resource type="Texture2D" uid="uid://bp3jfy1hb1ejq" path="res://assets/sprites/jiles.png" id="1_w6h2s"]
 [ext_resource type="PackedScene" uid="uid://cew2qflt412m6" path="res://scenes/objects/player.tscn" id="2_ogj6a"]
