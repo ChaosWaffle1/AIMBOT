@@ -2,6 +2,7 @@ class_name LevelManager
 extends Node
 
 var level: int = 1
+const final_level: int = 8
 
 const level_advance_time = 2.0
 
@@ -31,6 +32,11 @@ func restart_level():
 func advance_level():
 	print("called avance level")
 	await get_tree().create_timer(level_advance_time).timeout
+	
+	if level == final_level:
+		level = 1
+		get_tree().change_scene_to_file("res://scenes/menus/thanks_for_playing.tscn")
+		return
 	
 	var f_path = "res://scenes/levels/level_" + str(level + 1) + ".tscn"
 	if ResourceLoader.exists(f_path):
