@@ -46,7 +46,7 @@ func _physics_process(delta: float) -> void:
 		
 	elif Input.is_action_just_pressed("right_click") and GlobalVars.moveToggled:
 		SPEED = 80.0
-		JUMP_VELOCITY = -300.0
+		JUMP_VELOCITY = -200.0
 		GlobalVars.moveToggled = false
 	
 
