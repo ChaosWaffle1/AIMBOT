@@ -39,3 +39,11 @@ func advance_level():
 		get_tree().change_scene_to_file(f_path)
 	else:
 		printerr("No level " + str(level + 1) + " scene found. Path:" + f_path)
+
+func resume_level():
+	var f_path = "res://scenes/levels/level_" + str(level) + ".tscn"
+	if ResourceLoader.exists(f_path):
+		print("Changing to level " + str(level))
+		get_tree().change_scene_to_file(f_path)
+	else:
+		printerr("No level " + str(level) + " scene found. Path:" + f_path)

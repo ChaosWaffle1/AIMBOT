@@ -2,8 +2,7 @@ extends Control
 
 
 func _on_start_button_up() -> void:
-	get_tree().change_scene_to_file("res://scenes/levels/level_1.tscn")
-
+	GameManager.get_node("LevelManager").resume_level()
 
 func _on_credits_button_up() -> void:
 	get_tree().change_scene_to_file("res://scenes/menus/scroll_credits.tscn")
