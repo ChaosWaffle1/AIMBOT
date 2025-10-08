@@ -25,6 +25,17 @@ func die():
 	GlobalVars.moveToggled = false
 	freeze = true
 	dying = true
+	
+func _process(delta: float) -> void:
+	var map = get_parent().get_node("ForegroundTiles")
+	var mapLocal = map.to_local($Gun/Pivot/Barrel.global_position)
+	var coords = map.local_to_map(mapLocal)
+	var isInWall = map.get_cell_tile_data(coords)
+	
+	if isInWall != null:
+		GlobalVars.inTheWall = true
+	else:
+		GlobalVars.inTheWall = false
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
