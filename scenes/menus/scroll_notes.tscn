@@ -153,7 +153,7 @@ Version 4:
 - Added movement and firing mode for player
 - Added bullet bouncing at arbitrary number of bounces and arbitrary speed
 - Added custom fonts
-Verson 5:
+Version 5:
 - Added 8 levels
 - Redid UI
 - Added player and robot bullet collision
@@ -185,5 +185,5 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_ubiba")
 theme_override_styles/normal = SubResource("StyleBoxFlat_3l2le")
 text = "Back"
 
-[connection signal="button_up" from="Back" to="." method="_on_back_button_up"]
 [connection signal="button_up" from="Back" to="." method="_on_button_button_up"]
+[connection signal="button_up" from="Back" to="." method="_on_back_button_up"]
