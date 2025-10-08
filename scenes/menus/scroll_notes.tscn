@@ -64,7 +64,13 @@ Version 4:
 - Added gun sprite
 - Added movement and firing mode for player
 - Added bullet bouncing at arbitrary number of bounces and arbitrary speed
-- Added custom fonts"
+- Added custom fonts
+Verson 5:
+- Added 8 levels
+- Redid UI
+- Added player and robot bullet collision
+- Added sounds to the game
+- Patched player shooting in a wall bug"
 metadata/_edit_use_anchors_ = true
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
@@ -91,5 +97,5 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_ubiba")
 theme_override_styles/normal = SubResource("StyleBoxFlat_3l2le")
 text = "Back"
 
-[connection signal="button_up" from="Back" to="." method="_on_back_button_up"]
 [connection signal="button_up" from="Back" to="." method="_on_button_button_up"]
+[connection signal="button_up" from="Back" to="." method="_on_back_button_up"]
