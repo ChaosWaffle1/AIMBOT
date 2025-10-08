@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dnu4mtdt8vhdu"]
+[gd_scene load_steps=9 format=3 uid="uid://dnu4mtdt8vhdu"]
 
 [ext_resource type="Script" uid="uid://cjmocx3v0fv8q" path="res://scripts/scroll_credits.gd" id="1_er6dx"]
 [ext_resource type="Script" uid="uid://v6h0jpc053j2" path="res://scripts/scroll.gd" id="1_jrn3r"]
@@ -6,6 +6,8 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4lihp"]
 size = Vector2(369, 414)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ocg20"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ocg20"]
 bg_color = Color(0.489622, 0.489622, 0.489622, 1)
@@ -72,6 +74,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ocg20")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ocg20")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_a5d81")
 theme_override_styles/normal = SubResource("StyleBoxFlat_j2dj0")
