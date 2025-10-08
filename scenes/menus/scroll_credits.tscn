@@ -9,26 +9,14 @@ size = Vector2(369, 414)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_er6dx"]
 bg_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
 shadow_size = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m0rqu"]
 bg_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
 shadow_size = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j2dj0"]
 bg_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
 shadow_size = 5
 
 [node name="Node2D" type="Node2D"]
@@ -39,16 +27,16 @@ clip_children = 1
 offset_left = 300.0
 offset_top = 26.0
 offset_right = 827.0
-offset_bottom = 513.0
+offset_bottom = 450.0
 
 [node name="Credits" type="Node2D" parent="Panel"]
 position = Vector2(-67, 110)
 
 [node name="Label" type="Label" parent="Panel/Credits"]
-offset_left = 149.0
-offset_top = 4.0
-offset_right = 485.0
-offset_bottom = 46.0
+offset_left = 82.0
+offset_top = -96.0
+offset_right = 418.0
+offset_bottom = 1839.0
 theme_override_font_sizes/font_size = 30
 text = "Jack Curtis
 Zhi Hao Liao

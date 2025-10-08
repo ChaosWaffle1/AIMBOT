@@ -11,78 +11,42 @@ shader_parameter/lod = 0.1
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kukqi"]
 bg_color = Color(0.74978, 0.74978, 0.74978, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
 shadow_size = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5d2l8"]
 bg_color = Color(0.74978, 0.74978, 0.74978, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
 shadow_size = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7l7mv"]
 bg_color = Color(0.74978, 0.74978, 0.74978, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
 shadow_size = 5
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v4r4p"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1s2dm"]
 bg_color = Color(0.74978, 0.74978, 0.74978, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
 shadow_size = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_88e76"]
 bg_color = Color(0.74978, 0.74978, 0.74978, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
 shadow_size = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_knqa7"]
 bg_color = Color(0.74978, 0.74978, 0.74978, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
 shadow_size = 5
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_71k7c"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cmnsq"]
 bg_color = Color(0.74978, 0.74978, 0.74978, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
 shadow_size = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ofnjo"]
 bg_color = Color(0.74978, 0.74978, 0.74978, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
 shadow_size = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1rgno"]
 bg_color = Color(0.74978, 0.74978, 0.74978, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
 shadow_size = 5
 
 [node name="Pause Menu" type="Control"]
