@@ -1,28 +1,63 @@
 extends CharacterBody2D
 
 
-var SPEED = 80.0
-var JUMP_VELOCITY = -300.0
+var SPEED = 60.0
+var JUMP_VELOCITY = -200.0
+
+var freeze = false
+var dying = false
 
 @onready var sprite = $AnimatedSprite2D 
-@onready var sfx_gun_reload = $GunReload
+@onready var sfx_gun_equip = $GunEquip
+@onready var sfx_death = $Death
+@onready var listener = $AudioListener2D
+
+func _ready():
+	listener.clear_current()
+	listener.make_current()
+
+func win():
+	GlobalVars.moveToggled = false
+	freeze = true
+
+func die():
+	sfx_death.play()
+	GlobalVars.moveToggled = false
+	freeze = true
+	dying = true
+	
+func _process(delta: float) -> void:
+	var map = get_parent().get_node("ForegroundTiles")
+	var mapLocal = map.to_local($Gun/Pivot/Barrel.global_position)
+	var coords = map.local_to_map(mapLocal)
+	var isInWall = map.get_cell_tile_data(coords)
+	
+	if isInWall != null:
+		GlobalVars.inTheWall = true
+	else:
+		GlobalVars.inTheWall = false
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-
+		
+	if freeze:
+		if dying:
+			rotation += 1.2*delta
+		return
+	
 	# Toggle between regular movement and "aim mode"
 	if Input.is_action_just_pressed("right_click") and is_on_floor() and not GlobalVars.moveToggled:
 		SPEED = 0
 		JUMP_VELOCITY = 0
 		GlobalVars.moveToggled = true
-		sfx_gun_reload.pitch_scale = randf_range(0.9,1.1)
-		sfx_gun_reload.play()
+		sfx_gun_equip.pitch_scale = randf_range(0.9,1.1)
+		sfx_gun_equip.play()
 		
 	elif Input.is_action_just_pressed("right_click") and GlobalVars.moveToggled:
-		SPEED = 80.0
-		JUMP_VELOCITY = -300.0
+		SPEED = 50.0
+		JUMP_VELOCITY = -200.0
 		GlobalVars.moveToggled = false
 	
 

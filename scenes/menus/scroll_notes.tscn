@@ -84,14 +84,14 @@ position = Vector2(11, -39)
 script = ExtResource("1_1f60s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(436, 282.25)
+position = Vector2(445, 287)
 shape = SubResource("RectangleShape2D_4lihp")
 
 [node name="Back" parent="." instance=ExtResource("3_riypv")]
-offset_left = 319.0
-offset_top = 497.0
-offset_right = 545.0
-offset_bottom = 574.0
+offset_left = 336.0
+offset_top = 496.0
+offset_right = 562.0
+offset_bottom = 573.0
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)

@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://lytn3beqnnc5"]
+
+[ext_resource type="Script" uid="uid://cch8ptenvompc" path="res://scripts/thanks_for_playing.gd" id="1_whqj4"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_xb7du"]
+font_size = 90
+
+[node name="ThanksForPlaying" type="CanvasLayer"]
+script = ExtResource("1_whqj4")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+offset_right = 960.0
+offset_bottom = 576.0
+
+[node name="Label" type="Label" parent="CenterContainer"]
+layout_mode = 2
+text = "Thanks for playing!"
+label_settings = SubResource("LabelSettings_xb7du")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 384.0
+offset_top = 448.0
+offset_right = 576.0
+offset_bottom = 512.0
+text = "BACK"
+
+[connection signal="button_up" from="Button" to="." method="_on_button_button_up"]

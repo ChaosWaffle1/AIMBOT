@@ -17,7 +17,7 @@ visible = false
 material = SubResource("ShaderMaterial_qd4js")
 position = Vector2(16, 0)
 points = PackedVector2Array(0, 0, 500, 0)
-width = 1.2
+width = 0.3
 default_color = Color(0.92549, 0, 0.0862745, 0.521569)
 end_cap_mode = 2
 
@@ -36,13 +36,15 @@ texture = ExtResource("3_gp1hk")
 
 [node name="Gunshot" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_qd4js")
-bus = &"SFX"
-
-[node name="Timer" type="Timer" parent="."]
-one_shot = true
+volume_db = -6.255
+bus = &"Gun"
 
 [node name="Reload" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_r0qan")
-bus = &"SFX"
+volume_db = -14.075
+bus = &"Gun"
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
 
 [node name="Timer2" type="Timer" parent="."]

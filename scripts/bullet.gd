@@ -5,9 +5,11 @@ const SLOP = 0.9999
 var bounces: int = 0
 var has_hit_robot: bool = false
 var has_hit_player: bool = false
+var hit_frame_done: bool = false
+var removing_points: bool = false
 
-@export var bullet_speed: float = 2000
-@export var max_bounces: int = 3
+@export var bullet_speed: float = 1000
+@export var max_bounces: int = 10
 
 @onready var path: Path2D = $Path
 @onready var path_follow: PathFollow2D = $Path/PathFollow
@@ -30,12 +32,18 @@ func _ready() -> void:
 	
 func _physics_process(delta: float) -> void:
 	var first_ray = true
+	if debug_line.get_point_count() > 5:
+		removing_points = true
+	if removing_points:
+		if debug_line.get_point_count() > 0:
+			debug_line.remove_point(0)
 	if path.curve.point_count > 500:
 		queue_free()
 		return
 	var go = keep_going()
 	if not go:
-		debug_line.visible = false
+		if hit_frame_done: # calls once
+			return
 		bullet_sprite.visible = false
 		if has_hit_robot:
 			hit_robot.emit()
@@ -45,6 +53,7 @@ func _physics_process(delta: float) -> void:
 			pass
 		if kill_switch.is_stopped():
 			kill_switch.start()
+		hit_frame_done = true
 		return
 		
 	var distance_remaining: float = bullet_speed * delta

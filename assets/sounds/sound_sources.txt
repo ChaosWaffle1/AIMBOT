@@ -2,6 +2,7 @@ gun_shoot.wav -> Gun Sound 4 by TheNikonProductions -- https://freesound.org/s/3
 gun_reload.wav -> Gun_Clip_002AG.wav by Buckine -- https://freesound.org/s/573975/ -- License: Attribution 4.0
 bullet_ricochet_(all of them).wav -> bullet ricochet.wav by aust_paul -- https://freesound.org/s/30932/ -- License: Creative Commons 0
 reload.wav -> awp reload sound.mp3 by GFL7 -- https://freesound.org/s/276956/ -- License: Creative Commons 0
-metal-footsteps.wav -> Footsteps on Metal Platform Wearing Brogues 2.wav by F.M.Audio -- https://freesound.org/s/555289/ -- License: Attribution 4.0
-robot-humming.wav -> Droid Hum by TheSpiderWriter -- https://freesound.org/s/353263/ -- License: Creative Commons 0
-robot-explosion.wav -> SFX_Explosion_20.wav by jalastram -- https://freesound.org/s/317766/ -- License: Attribution 4.0
+metal_footsteps.wav -> Footsteps on Metal Platform Wearing Brogues 2.wav by F.M.Audio -- https://freesound.org/s/555289/ -- License: Attribution 4.0
+robot_humming.wav -> Droid Hum by TheSpiderWriter -- https://freesound.org/s/353263/ -- License: Creative Commons 0
+robot_explosion.wav -> SFX_Explosion_20.wav by jalastram -- https://freesound.org/s/317766/ -- License: Attribution 4.0
+player_die.ogg -> Scream 2 by TheSubber13 -- https://freesound.org/s/239901/ -- License: Attribution NonCommercial 3.0

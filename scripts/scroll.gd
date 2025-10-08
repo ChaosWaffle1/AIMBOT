@@ -9,7 +9,7 @@ func _physics_process(delta: float) -> void:
 		$"../Panel/Credits".position.y = mouse_pos.y
 		
 	move_and_slide()
-	if Input.is_action_pressed("click"):
+	if Input.is_action_pressed("left_click"):
 		scrolling = true
 		of = get_global_mouse_position() - $"../Panel/Credits".position
 		
