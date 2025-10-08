@@ -16,11 +16,14 @@ extends Node2D
 func _physics_process(delta):
 	var notPointingDown = true
 	var mouse = get_global_mouse_position()
-	if mouse.x > $".".global_position.x - 3.5 and mouse.x < $".".global_position.x + 3.5 and mouse.y > $".".global_position.y:
+	const center = 90
+	const range = 40
+	var angle = 180*$Pivot.global_rotation/PI
+	if center - range <= angle and angle <= center + range:
 		notPointingDown = false
 	else:
 		notPointingDown = true
-	if Input.is_action_just_pressed("left_click") and GlobalVars.moveToggled and timer.is_stopped() and notPointingDown:
+	if Input.is_action_just_pressed("left_click") and GlobalVars.moveToggled and timer.is_stopped() and notPointingDown and not GlobalVars.inTheWall:
 		fire()
 		timer.start()
 		sfx_reload.play()

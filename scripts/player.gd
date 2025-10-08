@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-var SPEED = 80.0
+var SPEED = 60.0
 var JUMP_VELOCITY = -200.0
 
 var freeze = false
@@ -25,6 +25,17 @@ func die():
 	GlobalVars.moveToggled = false
 	freeze = true
 	dying = true
+	
+func _process(delta: float) -> void:
+	var map = get_parent().get_node("ForegroundTiles")
+	var mapLocal = map.to_local($Gun/Pivot/Barrel.global_position)
+	var coords = map.local_to_map(mapLocal)
+	var isInWall = map.get_cell_tile_data(coords)
+	
+	if isInWall != null:
+		GlobalVars.inTheWall = true
+	else:
+		GlobalVars.inTheWall = false
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -45,7 +56,7 @@ func _physics_process(delta: float) -> void:
 		sfx_gun_equip.play()
 		
 	elif Input.is_action_just_pressed("right_click") and GlobalVars.moveToggled:
-		SPEED = 80.0
+		SPEED = 50.0
 		JUMP_VELOCITY = -200.0
 		GlobalVars.moveToggled = false
 	

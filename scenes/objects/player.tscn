@@ -3,8 +3,7 @@
 [ext_resource type="Script" uid="uid://cwyw6rc8xb10d" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://1hetk5r3a6eh" path="res://assets/sprites/player_shooting.png" id="2_dqkch"]
 [ext_resource type="PackedScene" uid="uid://cj6l3cr66vjsi" path="res://scenes/objects/gun.tscn" id="2_qhqgy"]
-[ext_resource type="Texture2D" uid="uid://5dx5jgq130li" path="res://assets/sprites/Idle Animation.png" id="2_qlg0r"]
-[ext_resource type="Texture2D" uid="uid://1m7iu77x07eh" path="res://assets/sprites/player_walking.png" id="4_tuyoq"]
+[ext_resource type="Texture2D" uid="uid://5dx5jgq130li" path="res://assets/sprites/player_idle.png" id="2_qlg0r"]
 [ext_resource type="AudioStream" uid="uid://c4wmp4tumyygv" path="res://assets/sounds/gun_equip.wav" id="6_tuyoq"]
 [ext_resource type="AudioStream" uid="uid://clfixfg6nv10g" path="res://assets/sounds/player_die.ogg" id="7_2rlf8"]
 
@@ -32,20 +31,23 @@ region = Rect2(16, 0, 16, 32)
 atlas = ExtResource("2_dqkch")
 region = Rect2(0, 32, 16, 32)
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ksjmp"]
+load_path = "res://.godot/imported/player_walking.png-3e0185a6d19318af50c9ab44e6ebd54b.ctex"
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_jej6c"]
-atlas = ExtResource("4_tuyoq")
+atlas = SubResource("CompressedTexture2D_ksjmp")
 region = Rect2(0, 0, 16, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f1ej7"]
-atlas = ExtResource("4_tuyoq")
+atlas = SubResource("CompressedTexture2D_ksjmp")
 region = Rect2(16, 0, 16, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oprun"]
-atlas = ExtResource("4_tuyoq")
+atlas = SubResource("CompressedTexture2D_ksjmp")
 region = Rect2(32, 0, 16, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a8ls1"]
-atlas = ExtResource("4_tuyoq")
+atlas = SubResource("CompressedTexture2D_ksjmp")
 region = Rect2(0, 32, 16, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g2els"]
@@ -98,7 +100,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk",
-"speed": 5.0
+"speed": 6.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qhqgy"]
@@ -110,8 +112,9 @@ script = ExtResource("1_g2els")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-4.76837e-07, -16)
 sprite_frames = SubResource("SpriteFrames_g2els")
-animation = &"idle"
+animation = &"walk"
 autoplay = "idle"
+frame_progress = 0.701086
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -13.7476)
@@ -121,7 +124,7 @@ shape = SubResource("RectangleShape2D_qhqgy")
 [node name="AudioListener2D" type="AudioListener2D" parent="."]
 
 [node name="Gun" parent="." instance=ExtResource("2_qhqgy")]
-position = Vector2(0, -14)
+position = Vector2(0, -12)
 
 [node name="GunEquip" type="AudioStreamPlayer2D" parent="."]
 scale = Vector2(1, 1.00202)
