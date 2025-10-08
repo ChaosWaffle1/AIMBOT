@@ -11,26 +11,14 @@ size = Vector2(369, 502.5)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_riypv"]
 bg_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
 shadow_size = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nvmf7"]
 bg_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
 shadow_size = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3l2le"]
 bg_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
 shadow_size = 5
 
 [node name="Node2D" type="Node2D"]
